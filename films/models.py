@@ -50,20 +50,20 @@ class Film(models.Model):
     changed_at = models.DateTimeField('date de modification', auto_now_add=True)
     changed_user = models.CharField("utilisateur qui a modifié", max_length=32)
     picture = models.ImageField("Affiche" )
-    acteur = models.ManyToManyField(Acteur,
+    # acteur = models.ManyToManyField(Acteur, related_name='filmsActeurs', blank=True)
+    video = models.ManyToManyField(Video, related_name='filmsVideos', blank=True)
+    photo = models.ManyToManyField(Photo, related_name='filmsPhotos', blank=True)
+    acteur_role = models.ManyToManyField(Acteur,
         through='Role_Film',
         through_fields=('film', 'acteur'))
-    # acteur = models.ManyToManyField(Acteur, related_name='filmsActeurs', blank=True)
-    Video = models.ManyToManyField(Video, related_name='filmsVideos', blank=True)
-    photo = models.ManyToManyField(Photo, related_name='filmsPhotos', blank=True)
     class Meta:
-        verbose_name = "film"
+            verbose_name = "film"
     def __str__(self):
         return self.title
-
 class Role_Film(models.Model):
     film = models.ForeignKey(Film, on_delete=models.CASCADE)
     acteur = models.ForeignKey(Acteur, on_delete=models.CASCADE)
+    role = models.ForeignKey(Role, on_delete=models.CASCADE, default = "")
     roledescription = models.CharField("Role Description", max_length=64, default = "")
     class Meta:
         verbose_name = "film/Acteur/rôle"
