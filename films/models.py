@@ -62,8 +62,8 @@ class Film(models.Model):
         return self.title
 class Role_Film(models.Model):
     film = models.ForeignKey(Film, on_delete=models.CASCADE)
-    acteur = models.ForeignKey(Acteur, on_delete=models.CASCADE)
     role = models.ForeignKey(Role, on_delete=models.CASCADE, default = "")
+    acteur = models.ForeignKey(Acteur, on_delete=models.CASCADE)
     roledescription = models.CharField("Role Description", max_length=64, default = "")
     class Meta:
         verbose_name = "film/Acteur/rôle"
