@@ -7,9 +7,11 @@ from .models import Film, Category_Film, Acteur, Role, Role_Film, Video_Type, Vi
 # admin.site.register(Film)
 class RoleFilmAdmin(admin.TabularInline):
     model = Role_Film
+  
 
 class FilmAdmin(admin.ModelAdmin):
     model = Film
+    filter_vertical = ("video","photo",)
     inlines = [RoleFilmAdmin,]
     list_filter = ['category', 'title']
     list_display = ["title", "category", 'synopsis']

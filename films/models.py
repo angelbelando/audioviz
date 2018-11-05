@@ -24,7 +24,6 @@ class Role(models.Model):
     def __str__(self):
         return self.name
 
-
 class Video_Type(models.Model):
     name = models.CharField('nom', max_length=40, unique=True)
     def __str__(self):
@@ -36,11 +35,13 @@ class Video(models.Model):
     UrlVideo = models.URLField("URL de la vidéo")
     def __str__(self):
         return self.name
+
 class Photo(models.Model):
     name = models.CharField('nom', max_length=60, unique=True)
     photo = models.ImageField("Photo" )
     def __str__(self):
         return self.name
+
 class Film(models.Model):
     title = models.CharField('titre du film', max_length=96, unique=True)
     category = models.ForeignKey(Category_Film, on_delete=models.CASCADE)
@@ -60,10 +61,11 @@ class Film(models.Model):
             verbose_name = "film"
     def __str__(self):
         return self.title
+
 class Role_Film(models.Model):
     film = models.ForeignKey(Film, on_delete=models.CASCADE)
     role = models.ForeignKey(Role, on_delete=models.CASCADE, default = "")
-    acteur = models.ForeignKey(Acteur, on_delete=models.CASCADE)
+    acteur = models.ForeignKey(Acteur, on_delete=models.CASCADE, default = "")
     roledescription = models.CharField("Role Description", max_length=64, default = "")
     class Meta:
         verbose_name = "film/Acteur/rôle"
