@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Découvrir Bootstrap 4</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    
+</head>
+<body style="padding-top:70px; padding-bottom: 70px;">
+   <header class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+        <a href="#" class="navbar-brand">
+           <img src="../assets/images/DiDaXo_logo_navbar.png" alt="Logo DiDaXo" />
+        </a><!--end a.navbar-brand-->
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-content">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-content">
+            <nav class="mr-auto">
+               <ul class="navbar-nav">
+                   <li class="nav-item active"><a href="index.html" class="nav-link">Accueil</a></li>
+                   <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                   <li class="nav-item dropdown">
+                       <a href="#" class="nav-link dropdown-toggle" id="aboutDropdownBtn" data-toggle="dropdown">À propos</a>
+                       <ul class="dropdown-menu">
+                           <li class="dropdown-item"><a href="about.html">Notre histoire</a></li>
+                           <li class="dropdown-item"><a href="about.html">L'équipe</a></li>
+                           <li class="dropdown-item"><a href="about.html">Presse</a></li>
+                       </ul>
+                   </li>
+                   <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+               </ul><!--end ul.navbar-nav-->
+            </nav>
+            <form class="form-inline" id="searchForm">
+               <div class="input-group">
+                  <input type="search" name="q" placeholder="Rechercher" class="form-control" />
+                  <div class="input-group-append">
+                      <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                  </div>
+               </div><!--end div.input-group in form#searchForm-->
+            </form><!--end form#searchForm-->
+        </div><!--end div#navbar-content.navbar-collapse-->
+   </header><!--End header.navbar-->
+   <main class="container-fluid mb-4" >
+       <section class="row my-4">
+           <div class="col-12 col-md-9">
+             <!--Begin Breadcrumb-->
+              <nav>
+                   <ol class="breadcrumb">
+                       <li class="breadcrumb-item"><a href="#">Accueil</a></li>
+                       <li class="breadcrumb-item active">Blog</li>
+                   </ol>
+              </nav>
+              <!--End Breadcrumb-->
+              <!--Begin Top pagination-->
+               <nav>
+                  <ul class="pagination justify-content-center">
+                   <li class="page-item disabled"><a href="#" class="page-link">&laquo;</a></li>
+                   <li class="page-item active"><a href="#" class="page-link">1</a></li>
+                   <li class="page-item"><a href="#" class="page-link">2</a></li>
+                   <li class="page-item"><a href="#" class="page-link">3</a></li>
+                   <li class="page-item"><a href="#" class="page-link">&raquo;</a></li>
+                  </ul>
+               </nav>
+               <!--End Top pagination-->
+               <div class="list-group list-group-flush mb-3">
+                   <article class="list-group-item list-group-item-action">
+                      <div class="row">
+                          <div class="col12 col-md-4">
+                              <img src="../assets/images/arbre.jpg" class="img-fluid img-thumbnail" alt="arbre">
+                          </div>
+                          <div class="col12 col-md-8">
+                              <h1 class="h3">Lorem ipsum dolor sit amet.</h1>
+                               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae repellat, id soluta fugit exercitationem accusamus perspiciatis sit iste aliquam quam quidem sunt earum. Esse rem illum, deleniti laborum cumque? Totam, ex. Facilis perferendis consequuntur veniam ratione, voluptas, dolorum sit. Ea beatae cumque illo numquam aliquam quisquam nostrum dolores, voluptate sequi placeat quasi eveniet alias recusandae modi. Commodi placeat beatae minus.</p>
+                               <a class="btn btn-primary" href="blogPost.html">En savoir plus</a>
+                          </div><!---End second column of Article-->
+                      </div>
+                   </article><!--end article.list-group-item-->
+                   <article class="list-group-item list-group-item-action">
+                      <div class="row">
+                          <div class="col12 col-md-4">
+                              <img src="../assets/images/brouillard.jpg" class="img-fluid img-thumbnail" alt="Brouillard">
+                          </div>
+                          <div class="col12 col-md-8">
+                              <h1 class="h3">Lorem ipsum dolor sit amet.</h1>
+                               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae repellat, id soluta fugit exercitationem accusamus perspiciatis sit iste aliquam quam quidem sunt earum. Esse rem illum, deleniti laborum cumque? Totam, ex. Facilis perferendis consequuntur veniam ratione, voluptas, dolorum sit. Ea beatae cumque illo numquam aliquam quisquam nostrum dolores, voluptate sequi placeat quasi eveniet alias recusandae modi. Commodi placeat beatae minus.</p>
+                               <a class="btn btn-primary" href="blogPost.html">En savoir plus</a>
+                          </div><!---End second column of Article-->
+                      </div>
+                   </article><!--end article.list-group-item-->
+                   <article class="list-group-item list-group-item-action">
+                      <div class="row">
+                          <div class="col12 col-md-4">
+                              <img src="../assets/images/chalet.jpg" class="img-fluid img-thumbnail" alt="Chalet">
+                          </div>
+                          <div class="col12 col-md-8">
+                              <h1 class="h3">Lorem ipsum dolor sit amet.</h1>
+                               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae repellat, id soluta fugit exercitationem accusamus perspiciatis sit iste aliquam quam quidem sunt earum. Esse rem illum, deleniti laborum cumque? Totam, ex. Facilis perferendis consequuntur veniam ratione, voluptas, dolorum sit. Ea beatae cumque illo numquam aliquam quisquam nostrum dolores, voluptate sequi placeat quasi eveniet alias recusandae modi. Commodi placeat beatae minus.</p>
+                               <a class="btn btn-primary" href="blogPost.html">En savoir plus</a>
+                          </div><!---End second column of Article-->
+                      </div>
+                   </article><!--end article.list-group-item-->
+                   <article class="list-group-item list-group-item-action">
+                      <div class="row">
+                          <div class="col12 col-md-4">
+                              <img src="../assets/images/riviere.jpg" class="img-fluid img-thumbnail" alt="Rivière">
+                          </div>
+                          <div class="col12 col-md-8">
+                              <h1 class="h3">Lorem ipsum dolor sit amet.</h1>
+                               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae repellat, id soluta fugit exercitationem accusamus perspiciatis sit iste aliquam quam quidem sunt earum. Esse rem illum, deleniti laborum cumque? Totam, ex. Facilis perferendis consequuntur veniam ratione, voluptas, dolorum sit. Ea beatae cumque illo numquam aliquam quisquam nostrum dolores, voluptate sequi placeat quasi eveniet alias recusandae modi. Commodi placeat beatae minus.</p>
+                               <a class="btn btn-primary" href="blogPost.html">En savoir plus</a>
+                          </div><!---End second column of Article-->
+                      </div>
+                   </article><!--end article.list-group-item-->
+                   <article class="list-group-item list-group-item-action">
+                      <div class="row">
+                          <div class="col12 col-md-4">
+                              <img src="../assets/images/soiree.jpg" class="img-fluid img-thumbnail" alt="Soirée">
+                          </div>
+                          <div class="col12 col-md-8">
+                              <h1 class="h3">Lorem ipsum dolor sit amet.</h1>
+                               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae repellat, id soluta fugit exercitationem accusamus perspiciatis sit iste aliquam quam quidem sunt earum. Esse rem illum, deleniti laborum cumque? Totam, ex. Facilis perferendis consequuntur veniam ratione, voluptas, dolorum sit. Ea beatae cumque illo numquam aliquam quisquam nostrum dolores, voluptate sequi placeat quasi eveniet alias recusandae modi. Commodi placeat beatae minus.</p>
+                               <a class="btn btn-primary" href="blogPost.html">En savoir plus</a>
+                          </div><!---End second column of Article-->
+                      </div>
+                   </article><!--end article.list-group-item-->
+               </div><!--End div.list-group-->
+               <!--Begin Bottom pagination-->
+               <nav>
+                  <ul class="pagination justify-content-center">
+                   <li class="page-item disabled"><a href="#" class="page-link">&laquo;</a></li>
+                   <li class="page-item active"><a href="#" class="page-link">1</a></li>
+                   <li class="page-item"><a href="#" class="page-link">2</a></li>
+                   <li class="page-item"><a href="#" class="page-link">3</a></li>
+                   <li class="page-item"><a href="#" class="page-link">&raquo;</a></li>
+                  </ul>
+               </nav>
+               <!--End Bottom pagination-->
+           </div><!--End first column-->
+           <div class="col-12 col-md-3">
+               <section class="card">
+                   <div class="card-header bg-primary text-white">
+                       <h1 class="h5">Catégories</h1>
+                   </div><!--end .card-header-->
+                   <ul class="list-group">
+                       <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"><a href="#">Catégorie 1</a><span class="badge badge-pill badge-primary">2</span></li>
+                       <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"><a href="#">Catégorie 2</a><span class="badge badge-pill badge-primary">10</span></li>
+                       <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"><a href="#">Catégorie 3</a><span class="badge badge-pill badge-primary">6</span></li>
+                       <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"><a href="#">Catégorie 4</a><span class="badge badge-pill badge-primary">8</span></li>
+                       <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"><a href="#">Catégorie 5</a><span class="badge badge-pill badge-primary">23</span></li>
+                   </ul>
+               </section><!--end Category section-->
+           </div><!--End second column-->
+       </section><!--end section.row-->
+   </main><!--end main.container-fluid-->
+   <footer class="bg-dark text-light fixed-bottom py-4">
+       <div class="container-fluid">
+          <div class="row">
+              <div class="col-12 d-flex justify-content-end small">
+                  <p class="mb-0">&copy; Copyright DiDaXo 2018</p>
+                  <ul class="nav">
+                      <li class="nav-item"><a href="#" class="nav-link py-0 text-info">Vie privée</a></li>
+                      <li class="nav-item"><a href="#" class="nav-link py-0 text-info">Conditions d'utilisation</a></li>
+                  </ul>
+              </div>
+          </div><!--End .row in footer-->
+       </div><!--End container-fluid in footer-->
+   </footer><!--end of main Footer-->
+   
+   <!--Support JS Files-->
+   <script src="../assets/js/fontawesome-all.min.js"></script>
+   <script src="../assets/js/jquery-3.3.1.slim.min.js"></script>
+   <script src="../assets/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

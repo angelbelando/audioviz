@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'audioviz.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # on utilise l'adaptateur postgresql
-        'NAME': 'audiovizdb', # le nom de notre base de donnees creee precedemment
+        'NAME': 'BD_Audioviz', # le nom de notre base de donnees creee precedemment
         'USER': 'Angel', # attention : remplacez par votre nom d'utilisateur
         'PASSWORD': 'angel',
         'HOST': '',

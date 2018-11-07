@@ -1,5 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Film
 
 def index(request):
-        return HttpResponse("Salut, Audioviz commence sa refonte")
+    films = Film.objects.all()
+    context = {
+        'films': films}
+    return render(request, 'film/index.html', context) 
+     
+        
