@@ -4,7 +4,6 @@ from .models import Film
 def index(request):
     films = Film.objects.all()
     context = {
-        'films': films}
+        'films': films
+        }
     return render(request, 'film/index.html', context) 
-     
-        

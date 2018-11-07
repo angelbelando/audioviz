@@ -1,8 +1,8 @@
-{% extends 'film/base.html' %}
+{% extends 'film/commun.html' %}
 
 
 {% block content %}
 
-  <!--  include 'film/list.html' with list_title='Nos derniers films'  -->
+  {% include 'film/listefilms.html' with listefilms_title='Nos derniers films' %}
 
 {% endblock %}

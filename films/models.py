@@ -1,13 +1,15 @@
 from django.db import models
+from datetime import date
 FILM_STATUS = (
     ('ECO', 'En cours'),
     ('TST', 'Publié Tests'),
     ('PUB', 'Publié'),     
     ('ARC', 'Archivé')
 )
-DIR_PHOTOS = './films/static/film/img/Photos'
-DIR_AFFICHES = './films/static/film/img/AffichesFilms'
-
+DIR_PHOTOS = './static/film/img/Photos'
+DIR_AFFICHES = './static/film/img/AffichesFilms'
+TODAY = date.today()
+YEAR = TODAY.year
 class Genre_Film(models.Model):
     genre = models.CharField('genre', max_length=32, unique=True)
 
@@ -67,6 +69,7 @@ class Film(models.Model):
     acteur_role = models.ManyToManyField(Acteur,
         through='Role_Film',
         through_fields=('film', 'acteur'))
+    an_creation = models.IntegerField("Année Création", blank=True, default=YEAR)
     class Meta:
             verbose_name = "film"
     def __str__(self):

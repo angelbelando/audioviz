@@ -13,9 +13,9 @@ class FilmAdmin(admin.ModelAdmin):
     model = Film
     filter_vertical = ("video","photo",)
     inlines = [RoleFilmAdmin,]
-    list_filter = ['genre', 'title']
+    list_filter = ['genre', 'an_creation']
     list_display = ["title", "genre", 'synopsis']
-    fields = ["title", "status", "genre", 'synopsis', 'picture', 'video', 'photo']
+    fields = ["title", "status", "genre", 'synopsis', 'an_creation', 'picture', 'video', 'photo']
 
     # readonly_fields = []
 
