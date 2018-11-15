@@ -25,23 +25,25 @@
     </div>
     <hr class="detail-separator">
 </div> 
-
-{% if films %}
-  <section class="row">
-  {% for film in films %}
-    <!-- films  -->    
-        <div class="col-12 col-md-6 col-lg-2 d-flex">
-          <div class="card img-fluid">
-            <a href="/films/{{film.id}}"><img src="{{ film.picture.url }}" alt="{{ film.title }}" class="card-img-top" /></a> 
-          </div><!--End .card-->
-        </div><!--End first element-->   
-  {% endfor %}
-  </section><!--End section.row third row-->  
-{% else %}
-  <div class="text-center">
-    Pas de film
-  </div>
-{% endif %}
+<div>
+    {% if films %}
+    <section class="row">
+    {% for film in films %}
+      <!-- films  -->    
+          <div class="col-12 col-md-6 col-lg-2 d-flex">
+            <div class="card img-fluid">
+              <a href="/films/{{film.id}}"><img src="{{ film.picture.url }}" alt="{{ film.title }}" class="card-img-top" /></a> 
+            </div><!--End .card-->
+          </div><!--End first element-->   
+    {% endfor %}
+    </section><!--End section.row third row-->  
+  {% else %}
+    <div class="text-center">
+      Pas de film
+    </div>
+  {% endif %}
+  
+</div>
 
  <!--Begin Bottom pagination - Mise en forme-->
 {% if is_paginated %}

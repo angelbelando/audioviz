@@ -5,3 +5,9 @@
 .bg-film {
     background-color: lightgrey
 }
+.bg-image {
+	background-image: url(../img/video.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+    height: 248px;
+}
