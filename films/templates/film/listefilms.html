@@ -1,6 +1,6 @@
-<div class="col-lg-12">
+<div class="col-12">
     <hr>
-    <div class="input-group mb-4">
+    <div class="input-group mb-6">
             <div class="input-group-prepend">
               <label class="input-group-text" for="inputGroupSelect01">Nos créations - filtrer par genre</label>
             </div>
@@ -26,26 +26,34 @@
     <hr class="detail-separator">
 </div> 
 
-
-{% if films|length_is:"0" %}
-    <div class="text-center">
-      Pas de film
-    </div>
-{% else %}
-<section class="row">
-    {% for film in films %}
+{% if films %}
+  <section class="row">
+  {% for film in films %}
     <!-- films  -->    
-
         <div class="col-12 col-md-6 col-lg-2 d-flex">
-           <div class="card">
-             <img src="{{ film.picture.url }}" alt="{{ film.title }}" class="card-img-top" />
-              <div class="card-body d-flex flex-column">
-                <h1 class="card-title h3">{{ film.title }}</h1>
-                <p class="card-text">{{ film.synopsis }}</p>
-                <a href="#" class="btn btn-primary mt-auto">En savoir plus</a>
-              </div><!--end .card-body-->
-           </div><!--End .card-->
+          <div class="card img-fluid">
+            <a href="/films/{{film.id}}"><img src="{{ film.picture.url }}" alt="{{ film.title }}" class="card-img-top" /></a> 
+          </div><!--End .card-->
         </div><!--End first element-->   
-    {% endfor %}
-</section><!--End section.row third row-->
+  {% endfor %}
+  </section><!--End section.row third row-->  
+{% else %}
+  <div class="text-center">
+    Pas de film
+  </div>
+{% endif %}
+
+ <!--Begin Bottom pagination - Mise en forme-->
+{% if is_paginated %}
+   <nav>
+      <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+          <li class="page-item"><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo;</a></li>
+        {% endif %}
+          <li class="page-item active"><a href="#" class="page-link">{{ page_obj.number }}/ {{ page_obj.paginator.num_pages }} </a></li>
+        {% if page_obj.has_next %}
+          <li class="page-item"><a href="?page={{ page_obj.next_page_number }}" class="page-link">&raquo;</a></li>
+        {% endif %}
+      </ul>
+   </nav>
 {% endif %}

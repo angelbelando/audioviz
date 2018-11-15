@@ -64,11 +64,11 @@ class Film(models.Model):
     changed_user = models.CharField("utilisateur qui a modifié", max_length=32)
     picture = models.ImageField("Affiche", upload_to=DIR_AFFICHES)
     # acteur = models.ManyToManyField(Acteur, related_name='filmsActeurs', blank=True)
-    video = models.ManyToManyField(Video, related_name='filmsVideos')
-    photo = models.ManyToManyField(Photo, related_name='filmsPhotos')
+    video = models.ManyToManyField(Video, related_name='filmsVideos', blank=True)
+    photo = models.ManyToManyField(Photo, related_name='filmsPhotos', blank=True)
     acteur_role = models.ManyToManyField(Acteur,
         through='Role_Film',
-        through_fields=('film', 'acteur'))
+        through_fields=('film', 'acteur', 'role'))
     an_creation = models.IntegerField("Année Création", blank=True, default=YEAR)
     class Meta:
             verbose_name = "film"

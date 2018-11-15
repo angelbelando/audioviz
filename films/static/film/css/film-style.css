@@ -1,0 +1,7 @@
+.scroll-film {
+    overflow:auto; 
+    height: 800px;
+}
+.bg-film {
+    background-color: lightgrey
+}

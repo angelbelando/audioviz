@@ -20,8 +20,9 @@ from django.contrib import admin
 
 from films  import views
 urlpatterns = [
-    path('', views.index, name="index"),
-    path('films/', include('films.urls')),
+    path('', views.Index.as_view(), name='index'),
+    path('films/', include('films.urls', namespace='films')),
     path('admin/', admin.site.urls, name='admin'),
 ] 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
