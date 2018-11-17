@@ -6,16 +6,7 @@
 <main class="container-fluid mb-4" >
    <section class="row my-4">
        <div class="col-12 col-md-9">
-          <!--Begin Breadcrumb-->
-          <nav>
-               <ol class="breadcrumb">
-                   <li class="breadcrumb-item"><a href="{% url 'films:index' %}">Accueil</a></li>
-                   <li class="breadcrumb-item"><a href="{% url 'films:index' %}">Nos créations</a></li>
-                   <li class="breadcrumb-item"><a href="{% url 'films:index' %}">Films</a></li>
-                   <li class="breadcrumb-item active">Détail Acteur</li>
-               </ol>
-          </nav>
-          <!--End Breadcrumb-->
+         
           <article class="mb-3">
                 <h1 class="h1">{{ acteur.name }}</h1>
                 <p class="p">{{ acteur.resumeCV }}</p>

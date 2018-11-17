@@ -43,7 +43,7 @@ class Video_Type(models.Model):
 class Video(models.Model):
     name = models.CharField('nom', max_length=64, unique=True)
     videoType = models.ForeignKey(Video_Type, on_delete=models.CASCADE)
-    UrlVideo = models.URLField("URL de la vidéo")
+    UrlVideo = models.CharField("URL de la vidéo", max_length=20, blank=True)
     def __str__(self):
         return self.name
 

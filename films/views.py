@@ -3,7 +3,8 @@ from django.http import HttpResponse
 from django.views import View
 from django.shortcuts import redirect
 from django.views.generic.base import TemplateResponseMixin
-from .models import Film, Role_Film, Acteur
+from django.db.models import Count
+from .models import Film, Role_Film, Acteur, Genre_Film
 
 class Index(generic.ListView):
     model = Film
@@ -12,12 +13,31 @@ class Index(generic.ListView):
     paginate_by = 10
 
     def get_queryset(self):
+        if self.request.GET.get('year_search'):
+            year_search  = self.request.GET.get('year_search')
+            queryset = Film.objects.filter(an_creation=year_search)
+        else:
+            queryset = Film.objects.order_by('-created_at')
+        return queryset
+        if self.request.GET.get('genre_search'):
+            genre_search  = self.request.GET.get('genre_search')
+            queryset = Film.objects.filter(genre_id=genre_search)
+        else:
+            queryset = Film.objects.order_by('-created_at')
+        return queryset
         if self.request.GET.get('query'):
             query  = self.request.GET.get('query')
             queryset = Film.objects.filter(title__icontains=query)
         else:
             queryset = Film.objects.order_by('-created_at')
         return queryset
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        context["genres"] = Genre_Film.objects.all()
+        context["years"] =  Film.objects.distinct().values('an_creation').order_by('-an_creation')
+        return context
 
 class DetailFilm(generic.DetailView):
     model = Film
@@ -37,7 +57,7 @@ class DetailActeur(generic.DetailView):
     model = Acteur
     template_name = 'film/detailacteur.html'
     context_object_name = 'acteur'
-
+    #  query  = self.request.GET.get('query')
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)

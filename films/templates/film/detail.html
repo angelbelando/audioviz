@@ -2,10 +2,9 @@
 
 {% block content %}
 
-<main class="container-fluid mb-4" >
-          <article class="my-4">
-              <div class="row  border">
-
+<main class="container-fluid" >
+          <article class="m-4">
+              <div class="row  border"></br>
                     <div class="scroll-film col-sm-12 col-lg-3 border"">
                     <img class="img-fluid" src="{{ film.picture.url }}" alt="{{ film.title }}" />
                     <h1 class="h1">{{ film.title }}</h1>
@@ -22,7 +21,8 @@
                             <div class="d-flex align-items-center">
                                 <div>
                                     {% for role_film in roles_film %} 
-                                    <p class="text-left"><strong>{{ role_film.role }}</strong></span> <a href="{% url 'films:detailacteur' role_film.acteur_id   %}">{{ role_film.acteur }}</a></p> 
+                                    <p class="text-left"><strong>{{ role_film.role }}</strong></span> <a href="{% url 'films:detailacteur' role_film.acteur_id   %}">
+                                        <span class="text-justify-right">{{ role_film.acteur }}</span></a></p> 
                                     {% endfor %}         
                                 </div>                                 
                             </div>
@@ -33,7 +33,7 @@
                                 <p class="h4 p-2 mb-1 bg-film text-secondary text-center rounded"">{{ video.name }}</p>
                                 <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/uX-UslzP_vE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
                                 <div class="embed-responsive embed-responsive-16by9">
-                                  <iframe class="embed-responsive-item" src="{{ video.UrlVideo }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ video.UrlVideo }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div> 
                                 <p class="mb-1"></p>
                             {% endfor %}
@@ -45,7 +45,7 @@
                             {% for video in suggestion.video.all %}
                                 {% if video not in film.video.all%}
                                 <div class="embed-responsive embed-responsive-4by3">
-                                    <iframe class="embed-responsive-item" src="{{ video.UrlVideo }}"  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ video.UrlVideo }}"  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>     
                                 <p class="mb-1"></p>
                                 {% endif %} 
@@ -55,9 +55,11 @@
               </div>
 
               {% if film.photo.all %}
-              <div class="row d-flex border">
+       
+              <div class="row d-flex">
 
                     <div class="col-12 border">
+                        </br>
                            <div class="container-fluid">
                                 <p class="h3 p-2 mb-1 bg-film text-secondary text-center rounded">Gallerie de photos</p>
                                 <div class="tz-gallery">                               

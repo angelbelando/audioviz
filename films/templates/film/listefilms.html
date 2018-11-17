@@ -1,33 +1,40 @@
-<div class="col-12">
-    <hr>
-    <div class="input-group mb-6">
+
+<div class="row d-flex m-5">
+<form  id="searchForm" action="#" method="get" accept-charset="utf-8">
+    <div class="input-group">
             <div class="input-group-prepend">
-              <label class="input-group-text" for="inputGroupSelect01">Nos créations - filtrer par genre</label>
+              <label class="input-group-text" for="inputGroupSelect01">Filtrer par genre</label>
             </div>
-            <select class="custom-select" id="inputGroupSelect01">
-              <option selected>Choisir le genre..</option>
-              <option value="1">Long métrage</option>
-              <option value="2">Court métrage</option>
-              <option value="3">Cuisine</option>
-              <option value="4">Fan Film</option>
+            <select class="custom-select" id="inputGroupSelect01" name="genre_search">
+              <option selected></option>
+              {% for genre in genres %}
+              <option value="{{ genre.id }}">{{ genre.genre }}</option>
+              {% endfor %}
             </select> <!--fin Bouton de filtre  Genre-->
-          
-                <div class="input-group-prepend">
-                  <label class="input-group-text" for="inputGroupSelect01">Filtrer par annnée de création </label>
-                </div>
-                <select class="custom-select" id="inputGroupSelect01">
-                  <option selected>Choisir l'année</option>
-                  <option value="1">2018</option>
-                  <option value="2">2017</option>
-                  <option value="3">2016</option>
-                  <option value="4">2003-2015</option>
+           
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="inputGroupSelect01">Filtrer par annnée de création </label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01" name="year_search">
+              <option selected></option>
+              {% for year in years %}
+              <option value="{{ year.an_creation }}">{{ year.an_creation }}</option>
+              {% endfor %}
             </select>
+            
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Chercher par nom de film </label>
+            </div>
+            <input type="search" name="query" placeholder="Rechercher" class="form-control" />
+            <div class="input-group-append">
+                <button class="btn bg-film "><i class="fas fa-search"></i></button>
+            </div>           
     </div>
-    <hr class="detail-separator">
+</form>
 </div> 
 <div>
     {% if films %}
-    <section class="row">
+    <section class="row m-1">
     {% for film in films %}
       <!-- films  -->    
           <div class="col-12 col-md-6 col-lg-2 d-flex">
