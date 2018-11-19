@@ -1,10 +1,11 @@
 from django.views import generic
 from django.http import HttpResponse
 from django.views import View
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.views.generic.base import TemplateResponseMixin
 from django.db.models import Count
 from .models import Film, Role_Film, Acteur, Genre_Film
+
 
 class Index(generic.ListView):
     model = Film
@@ -15,28 +16,58 @@ class Index(generic.ListView):
     def get_queryset(self):
         if self.request.GET.get('year_search'):
             year_search  = self.request.GET.get('year_search')
-            queryset = Film.objects.filter(an_creation=year_search)
         else:
-            queryset = Film.objects.order_by('-created_at')
-        return queryset
-        if self.request.GET.get('genre_search'):
-            genre_search  = self.request.GET.get('genre_search')
-            queryset = Film.objects.filter(genre_id=genre_search)
+            year_search = 0
+        if  self.request.GET.get('genre_search'):
+             genre_search  = self.request.GET.get('genre_search')
         else:
-            queryset = Film.objects.order_by('-created_at')
-        return queryset
+            genre_search = "Null"
         if self.request.GET.get('query'):
             query  = self.request.GET.get('query')
-            queryset = Film.objects.filter(title__icontains=query)
+        else:
+            query = "Null"
+        if year_search!=0 and genre_search!="Null" and query!="Null":  
+            # requête 1     
+            queryset = Film.objects.filter(an_creation=year_search).filter(genre_id=genre_search).filter(title__icontains=query)
+        elif year_search!=0 and genre_search!="Null" and query=="Null":
+            # requête 2 
+            queryset = Film.objects.filter(an_creation=year_search).filter(genre_id=genre_search)
+        elif year_search!=0 and genre_search=="Null" and query=="Null":
+            # requête 3
+            queryset = Film.objects.filter(an_creation=year_search)
+        elif year_search!=0 and genre_search=="Null" and query!="Null":
+            # requête 4
+            queryset = Film.objects.filter(an_creation=year_search).filter(title__icontains=query)
+        elif year_search==0 and genre_search!="Null" and query=="Null":
+            # requête 5
+            queryset = Film.objects.filter(genre_id=genre_search)
+        elif year_search==0 and genre_search=="Null" and query!="Null":
+            # requête 6
+            queryset = Film.objects.filter(title__icontains=query) 
+        elif year_search==0 and genre_search!="Null" and query!="Null":   
+            queryset = Film.objects.filter(genre_id=genre_search).filter(title__icontains=query)
         else:
             queryset = Film.objects.order_by('-created_at')
         return queryset
 
     def get_context_data(self, **kwargs):
+        if self.request.GET.get('year_search'):
+                year_search  = self.request.GET.get('year_search')
+        else:
+            year_search = 0
+        if  self.request.GET.get('genre_search'):
+             genre_search  = self.request.GET.get('genre_search')
+        else:
+            genre_search = "Null"
+        if self.request.GET.get('query'):
+            query  = self.request.GET.get('query')
+        else:
+            query = "Null"
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
         context["genres"] = Genre_Film.objects.all()
         context["years"] =  Film.objects.distinct().values('an_creation').order_by('-an_creation')
+        context["Filters"] = f"{genre_search}/{year_search}/{query}"
         return context
 
 class DetailFilm(generic.DetailView):
@@ -63,3 +94,6 @@ class DetailActeur(generic.DetailView):
         context = super().get_context_data(**kwargs)
         # recherche de l'ID de film pour accéder au modèle Film/Acteur/Role 
         return context
+
+# class Boutique(generic.TemplateView):
+#     template_name = 'boutique.html'

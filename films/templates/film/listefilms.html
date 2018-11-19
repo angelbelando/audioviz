@@ -16,7 +16,7 @@
               <label class="input-group-text" for="inputGroupSelect01">Filtrer par annnée de création </label>
             </div>
             <select class="custom-select" id="inputGroupSelect01" name="year_search">
-              <option selected></option>
+              <option selected>{{ year.an_creation }}</option>
               {% for year in years %}
               <option value="{{ year.an_creation }}">{{ year.an_creation }}</option>
               {% endfor %}
@@ -33,6 +33,7 @@
 </form>
 </div> 
 <div>
+  <P>{{ Filters }}.</P>
     {% if films %}
     <section class="row m-1">
     {% for film in films %}

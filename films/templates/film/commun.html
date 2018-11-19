@@ -16,7 +16,7 @@
    
   </head>
   <body style="padding-top:70px; padding-bottom: 70px;">
-    <header class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+    <header class="navbar navbar-expand-md navbar-light bg-nav-film fixed-top">
         <a href="#" class="navbar-brand">
            <img src="{% static 'film/img/logoAudiovizRVB.jpg' %}" alt="Logo">
         </a><!--end a.navbar-brand-->
@@ -31,21 +31,22 @@
                    <li class="nav-item"><a href="nav-link" class="nav-link"><i class="far fa-newspaper"></i> News</a></li>
                    <li class="nav-item"><a href="" class="nav-link"><i class="fas fa-video"></i></i> Nos Créations</a></li>
                    <li class="nav-item"><a href="" class="nav-link"><i class="fab fa-blogger-b"></i> Blog</a></li>
-                   <li class="nav-item"><a href="https://shop.spreadshirt.fr/audioviz/" class="nav-link"><i class="fas fa-shopping-cart"></i> Boutique</a></li>
-                   <li class="nav-item dropdown">
+                   <li class="nav-item"><a href="{% url 'boutique' %}" class="nav-link"><i class="fas fa-shopping-cart"></i> Boutique</a></li>
+                   <li class="nav-item"><a href="{% url 'audioviz' %}" class="nav-link"><i class="far fa-comments"></i> À propos</a></li>
+                   <!-- <li class="nav-item dropdown">
                        <a href="#" class="nav-link dropdown-toggle" id="aboutDropdownBtn" data-toggle="dropdown"><i class="far fa-comments"></i> À propos</a>
                        <ul class="dropdown-menu">
-                           <li class="dropdown-item"><a href="about.html">Association</a></li>
+                           <li class="dropdown-item"><a href="{% url 'audioviz' %}">Association</a></li>
                            <li class="dropdown-item"><a href="about.html">L'équipe</a></li>
                            <li class="dropdown-item"><a href="about.html">Presse</a></li>
                        </ul>
-                   </li>
+                   </li> -->
                    <li class="nav-item"><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
                </ul><!--end ul.navbar-nav-->
             </nav>
-            <a href="https://twitter.com/audioviz" class="nav-link"><i class="fab fa-twitter"></i></a>
+            <!-- <a href="https://twitter.com/audioviz" class="nav-link"><i class="fab fa-twitter"></i></a> -->
             <a href="https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Fhome.php#!/pages/Audioviz-Association/131560096888059" class="nav-link"><i class="fab fa-facebook-f"></i></a>
-            
+            <a href="https://www.youtube.com/channel/UCbsFkor2F0BtiVlvGkL0fgQ" class="nav-link"><i class="fab fa-youtube"></i></a>
         </div><!--end div#navbar-content.navbar-collapse-->
    </header><!--End header.navbar-->
   
@@ -58,7 +59,7 @@
 <footer>
         <div class="container-fluid m-3">
         </br>
-            <div class="row bg-film img-fluid">
+            <div class="row bg-nav-film img-fluid">
                 <div class="col-12 text-center"> </br>
                     <p>Copyright &copy; <a href="" target="_blank">Angel Belando</a> pour <a href=" target="_blank">Audioviz</a></p>
                 </div>

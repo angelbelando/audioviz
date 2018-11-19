@@ -3,7 +3,10 @@
     height: 800px;
 }
 .bg-film {
-    background-color: lightgrey
+    background-color: gainsboro;
+}
+.bg-nav-film {
+    background-color: rgba(210, 237, 250, 0.774);
 }
 .bg-image {
 	background-image: url(../img/video.jpg);
