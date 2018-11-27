@@ -130,9 +130,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_URL = 'films/static/film/media/'
+MEDIA_URL = '/media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'films/static/film/media/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 if os.environ.get('ENV') == 'PROD':
     
