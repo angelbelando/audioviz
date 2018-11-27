@@ -129,12 +129,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-if os.environ.get('ENV') == 'PROD':
-    MEDIA_URL = 'audioviz-fr.herokuapp.com/media/'
-else:
-    MEDIA_URL = '/media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_URL = 'films/static/film/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'films/static/film/media/')
 
 if os.environ.get('ENV') == 'PROD':
     
