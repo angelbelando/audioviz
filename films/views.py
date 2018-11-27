@@ -94,6 +94,3 @@ class DetailActeur(generic.DetailView):
         context = super().get_context_data(**kwargs)
         # recherche de l'ID de film pour accéder au modèle Film/Acteur/Role 
         return context
-
-# class Boutique(generic.TemplateView):
-#     template_name = 'boutique.html'
