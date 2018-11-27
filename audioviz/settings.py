@@ -130,7 +130,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 if os.environ.get('ENV') == 'PROD':
-    MEDIA_URL = 'media.audioviz-fr.herokuapp.com'
+    MEDIA_URL = 'audioviz-fr.herokuapp.com/media/'
 else:
     MEDIA_URL = '/media/'
 
