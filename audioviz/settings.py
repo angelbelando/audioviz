@@ -30,8 +30,7 @@ if os.environ.get('ENV') == 'PROD':
 else:
     DEBUG = True
 
-ALLOWED_HOSTS = ['aaudioviz-fr.herokuapp.com', '127.0.0.1']
-
+ALLOWED_HOSTS = ['audioviz-fr.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
