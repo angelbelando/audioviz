@@ -14,20 +14,20 @@ body {
 
 .gallery-container h1 {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 20px;
     font-family: 'Droid Sans', sans-serif;
     font-weight: bold;
 }
 
 .gallery-container p.page-description {
     text-align: center;
-    margin: 25px auto;
+    margin: 15px auto;
     font-size: 18px;
     color: #999;
 }
 
 .tz-gallery {
-    padding: 40px;
+    padding: 10px;
 }
 
 /* Override bootstrap column paddings */

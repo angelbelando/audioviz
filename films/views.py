@@ -80,8 +80,10 @@ class DetailFilm(generic.DetailView):
         # recherche de l'ID de film pour accéder au modèle Film/Acteur/Role
         pk_URL = self.kwargs.get(self.pk_url_kwarg, None)
         film_corrent = Film.objects.get(pk=pk_URL)
-        context['roles_film'] = Role_Film.objects.filter(film_id=pk_URL).order_by('acteur')
+        context['roles_film_Autres'] = Role_Film.objects.filter(film_id=pk_URL).order_by('role').exclude(role_id=6)
+        context['roles_film_Acteurs'] = Role_Film.objects.filter(film_id=pk_URL).order_by('role').filter(role_id=6)
         context['suggestions'] = Film.objects.filter(genre_id=film_corrent.genre_id) 
+        context['ACTEUR'] = 'Acteur'
         return context
 
 class DetailActeur(generic.DetailView):
