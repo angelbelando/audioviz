@@ -1,4 +1,6 @@
 # Notes dévelopement Site WEB Audioviz
+### lancer le serveur Django localement
+./manage.py runserver
 ## Se connecter à HEROKU
 $ heroku login
 ### Pousser le dépôt GIT sur HEROKU 

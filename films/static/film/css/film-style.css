@@ -6,11 +6,14 @@
     background-color: gainsboro;
 }
 .bg-nav-film {
-    background-color: rgba(210, 237, 250, 0.774);
+    background-color:#3498DB ;
 }
 .bg-image {
 	background-image: url(../img/video.jpg);
 	background-repeat: no-repeat;
 	background-repeat: no-repeat;
 	background-size: cover;
+}
+.blank {
+    color: white;
 }
