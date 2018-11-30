@@ -2,4 +2,6 @@ Brouillon.*
 audioviz/__pycache__/
 films/__pycache__/
 films/migrations/__pycache__/
+blog/__pycache__/
+blog/migrations/__pycache__/
 .vscode/

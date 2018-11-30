@@ -5,11 +5,11 @@ from django.shortcuts import redirect, render
 from django.views.generic.base import TemplateResponseMixin
 from django.db.models import Count
 from .models import Film, Role_Film, Acteur, Genre_Film
+from blog.models import Post
 
-
-class Index(generic.ListView):
+class HomeFilms(generic.ListView):
     model = Film
-    template_name = 'film/index.html'
+    template_name = 'film/home_films.html'
     context_object_name = 'films'
     paginate_by = 10
 
@@ -69,7 +69,15 @@ class Index(generic.ListView):
         context["years"] =  Film.objects.distinct().values('an_creation').order_by('-an_creation')
         context["Filters"] = f"{genre_search}/{year_search}/{query}"
         return context
-
+class Index(generic.ListView):
+    model = Film
+    template_name = 'film/index.html'
+    context_object_name = 'films'
+    paginate_by = 10
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['posts']= Post.objects.all().order_by('-post_date')[:3]
+        return context
 class DetailFilm(generic.DetailView):
     model = Film
     template_name = 'film/detail.html'

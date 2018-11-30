@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'film/css/bootstrap.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'film/css/film-style.css' %}" />
-   
+    <link rel="stylesheet" type="text/css" href="{% static 'film/css/blog.css' %}" />
   </head>
   <body style="padding-top:70px; padding-bottom: 70px;">
     <header class="navbar navbar-expand-md navbar-dark bg-nav-film fixed-top">
@@ -28,20 +28,13 @@
                <ul class="navbar-nav">
                     <li class="nav-item"><a href="{% url 'index' %}" class="nav-link"></a></li>
                     <li class="nav-item"><a href="{% url 'index' %}" class="nav-link"><i class="fas fa-home"></i></a></li>
-                   <li class="nav-item"><a href="nav-link" class="nav-link"><i class="far fa-newspaper"></i> News</a></li>
-                   <li class="nav-item"><a href="" class="nav-link"><i class="fas fa-video"></i></i> Nos Créations</a></li>
-                   <li class="nav-item"><a href="" class="nav-link"><i class="fab fa-blogger-b"></i> Blog</a></li>
+                   <li class="nav-item"><a href= "{% url 'blog_index' %}" class="nav-link"><i class="far fa-newspaper"></i> News</a></li>
+                   <li class="nav-item"><a href= "{% url 'films:home_films' %}" class="nav-link"><i class="fas fa-video"></i></i> Nos Créations</a></li>
+                   <li class="nav-item"><a href="{% url 'audioviz_blogger' %}" class="nav-link"><i class="fab fa-blogger-b"></i> Blog</a></li>
                    <li class="nav-item"><a href="{% url 'boutique' %}" class="nav-link"><i class="fas fa-shopping-cart"></i> Boutique</a></li>
                    <li class="nav-item"><a href="{% url 'audioviz' %}" class="nav-link"><i class="far fa-comments"></i> À propos</a></li>
-                   <!-- <li class="nav-item dropdown">
-                       <a href="#" class="nav-link dropdown-toggle" id="aboutDropdownBtn" data-toggle="dropdown"><i class="far fa-comments"></i> À propos</a>
-                       <ul class="dropdown-menu">
-                           <li class="dropdown-item"><a href="{% url 'audioviz' %}">Association</a></li>
-                           <li class="dropdown-item"><a href="about.html">L'équipe</a></li>
-                           <li class="dropdown-item"><a href="about.html">Presse</a></li>
-                       </ul>
-                   </li> -->
-                   <li class="nav-item"><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+
+                   <li class="nav-item"><a href="{% url 'contact' %}"" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
                </ul><!--end ul.navbar-nav-->
             </nav>
             <!-- <a href="https://twitter.com/audioviz" class="nav-link"><i class="fab fa-twitter"></i></a> -->

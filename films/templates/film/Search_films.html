@@ -1,0 +1,33 @@
+<div class="row d-flex-left m-2 ml-1">
+<form  id="searchForm" action="#" method="get" accept-charset="utf-8">
+    <div class="input-group btn-group-sm">
+            <div class="input-group-prepend">
+              <label class="input-group-text bg-nav-film text-white" for="inputGroupSelect01">Genre</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01" name="genre_search">
+              <option selected></option>
+              {% for genre in genres %}
+              <option value="{{ genre.id }}">{{ genre.genre }}</option>
+              {% endfor %}
+            </select> <!--fin Bouton de filtre  Genre-->
+           
+            <div class="input-group-prepend">
+              <label class="input-group-text bg-nav-film text-white" for="inputGroupSelect01">Année</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01" name="year_search">
+              <option selected>{{ year.an_creation }}</option>
+              {% for year in years %}
+              <option value="{{ year.an_creation }}">{{ year.an_creation }}</option>
+              {% endfor %}
+            </select>
+            
+            <div class="input-group-prepend">
+                <label class="input-group-text bg-nav-film text-white" for="inputGroupSelect01">Titre</label>
+            </div>
+            <input type="search" name="query" placeholder="Rechercher" class="form-control" />
+            <div class="input-group-append">
+                <button class="btn bg-nav-film text-white"><i class="fas fa-play"></i></button>
+            </div>           
+    </div>
+</form>
+</div>

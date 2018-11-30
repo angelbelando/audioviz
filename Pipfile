@@ -11,6 +11,10 @@ dj-database-url = "*"
 gunicorn = "*"
 psycopg2-binary = "*"
 dj-static = "*"
+django-el-pagination = "*"
+django-pagedown = "*"
+django-simple-math-captcha = "*"
+django-site = "*"
 
 [dev-packages]
 

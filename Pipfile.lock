@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "e120fb581e6dd5c8c3c79517b8f2ce4bec1b332bc9b517f245e1a46d3fb2cad7"
+            "sha256": "b62f56a7f16fd2250de210eaed3b9b89df8e73f48960ec07ebdececad1dfa87e"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -38,6 +38,27 @@
             ],
             "index": "pypi",
             "version": "==2.1.3"
+        },
+        "django-el-pagination": {
+            "hashes": [
+                "sha256:4ef652f65350b754028f0c23d72dcd60461215b589f269bc23f78ee00b96d0f8"
+            ],
+            "index": "pypi",
+            "version": "==3.2.4"
+        },
+        "django-pagedown": {
+            "hashes": [
+                "sha256:cd24550256879077bc5699c41407e4f1f2c0d3409bf033ccdb68fc9502844b15"
+            ],
+            "index": "pypi",
+            "version": "==1.0.6"
+        },
+        "django-simple-math-captcha": {
+            "hashes": [
+                "sha256:0d0abccb43b2fda4e02755df36f3228ab29df6af9c3cd02e94f61b6f74850624"
+            ],
+            "index": "pypi",
+            "version": "==1.0.7"
         },
         "gunicorn": {
             "hashes": [
@@ -128,8 +149,7 @@
         },
         "static3": {
             "hashes": [
-                "sha256:674641c64bc75507af2eb20bef7e7e3593dca993dec6674be108fa15b42f47c8",
-                "sha256:e1db817dd3f1989758822d079d786e4b3a351e1492874ad6dcebc2817fbdf2dd"
+                "sha256:674641c64bc75507af2eb20bef7e7e3593dca993dec6674be108fa15b42f47c8"
             ],
             "version": "==0.7.0"
         },

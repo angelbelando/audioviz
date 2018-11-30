@@ -36,6 +36,8 @@ ALLOWED_HOSTS = ['audioviz-fr.herokuapp.com', '127.0.0.1']
 
 INSTALLED_APPS = [
     'films.apps.FilmsConfig',
+    'django.contrib.sites',
+    'blog.apps.BlogConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -151,3 +153,6 @@ if os.environ.get('ENV') == 'PROD':
 
     db_from_env = dj_database_url.config(conn_max_age=500)
     DATABASES['default'].update(db_from_env)
+
+MAX_LENGTH_TEXTAREA = 120
+# SITE_ID = 1

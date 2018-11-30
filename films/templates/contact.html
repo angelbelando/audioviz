@@ -1,0 +1,52 @@
+{% extends 'film/commun.html' %}
+
+{% block content %}
+
+<main class="container-fluid mb-4" >
+   
+           <div class="col-12 col-md-6">
+               <form>
+                  <h1 class="h3">Formulaire de contact</h1>
+                  <fieldset>
+                     <legend>Informations personnelles</legend>
+                      <!--FirstName field-->
+                       <div class="form-group">
+                           <label for="fName" class="d-none d-md-block">Votre prénom</label>
+                           <input type="text" class="form-control" name="fName" id="fName" placeholder="Votre prénom" />
+                       </div>
+                       <!--End FirstName field-->
+                       <!--LastName field-->
+                       <div class="form-group">
+                           <label for="lName" class="d-none d-md-block">Votre nom de famille</label>
+                           <input type="text" class="form-control" name="lName" id="lName" placeholder="Votre nom de famille" />
+                       </div>
+                       <!--End LastName field-->
+                       <!--email field-->
+                       <div class="form-group">
+                           <label for="email" class="d-none d-md-block">Votre adresse email</label>
+                           <input type="mail" class="form-control" name="email" id="email" placeholder="Votre adresse email" />
+                           <small class="form-text text-muted">Nous ne partagerons pas votre adresse mail avec des tiers.</small>
+                       </div>
+                       <!--End email field-->
+                
+                  </fieldset>
+                 
+                  <fieldset>
+                      <legend>Votre message</legend>
+                      <!--Message-->
+                      <div class="form-group">
+                          <label for="message" class="d-none d-md-block">Votre Message</label>
+                          <textarea name="message" id="message" rows="6" class="form-control"></textarea>
+                      </div>
+                      <!--End Message-->
+                  </fieldset>
+                  <!--Submit-->
+                  <button class="btn bg-nav-film text-white">Envoyer !</button>
+               </form>
+           </div><!--End Second Column (Contact Form)-->
+
+    </main><!--end main.container-fluid-->
+
+
+  
+{% endblock %}

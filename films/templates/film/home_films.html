@@ -1,6 +1,5 @@
 {% extends 'film/commun.html' %}
-
 {% block content %}
-  {% include 'blog/post_list_news.html' with listefilms_title='Blog' %}
+  {% include 'film/search_films.html' with listefilms_title='Recherche films' %}
   {% include 'film/listefilms.html' with listefilms_title='Nos derniers films' %}
 {% endblock %}
