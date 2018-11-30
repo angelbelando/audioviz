@@ -76,7 +76,7 @@ class Index(generic.ListView):
     paginate_by = 10
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['posts']= Post.objects.all().order_by('-post_date')[:3]
+        context['posts']= Post.objects.all().order_by('-post_date')[:4]
         return context
 class DetailFilm(generic.DetailView):
     model = Film

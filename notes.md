@@ -8,6 +8,7 @@ $ git push heroku master
 ### Dump données de la base de donnée FILMS
 $ ./manage.py dumpdata films > films/dumps/films.json
 ### Importer la base de donnée dans HEROKU
+$ heroku run python manage.py migrate
 $ heroku run python manage.py loaddata films/dumps/films.json
 ## Création application BLOG
 $ ./manage.py startapp blog
