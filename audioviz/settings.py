@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -155,4 +155,5 @@ if os.environ.get('ENV') == 'PROD':
     DATABASES['default'].update(db_from_env)
 
 MAX_LENGTH_TEXTAREA = 120
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # SITE_ID = 1

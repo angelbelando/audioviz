@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "b62f56a7f16fd2250de210eaed3b9b89df8e73f48960ec07ebdececad1dfa87e"
+            "sha256": "ca1de1f572356f762888b024328fddff52501de592c2081f58bff57bed763f98"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -33,11 +33,19 @@
         },
         "django": {
             "hashes": [
-                "sha256:1ffab268ada3d5684c05ba7ce776eaeedef360712358d6a6b340ae9f16486916",
-                "sha256:dd46d87af4c1bf54f4c926c3cfa41dc2b5c15782f15e4329752ce65f5dad1c37"
+                "sha256:068d51054083d06ceb32ce02b7203f1854256047a0d58682677dd4f81bceabd7",
+                "sha256:55409a056b27e6d1246f19ede41c6c610e4cab549c005b62cbeefabc6433356b"
             ],
             "index": "pypi",
-            "version": "==2.1.3"
+            "version": "==2.1.4"
+        },
+        "django-crispy-forms": {
+            "hashes": [
+                "sha256:5952bab971110d0b86c278132dae0aa095beee8f723e625c3d3fa28888f1675f",
+                "sha256:705ededc554ad8736157c666681165fe22ead2dec0d5446d65fc9dd976a5a876"
+            ],
+            "index": "pypi",
+            "version": "==1.7.2"
         },
         "django-el-pagination": {
             "hashes": [

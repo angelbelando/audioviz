@@ -27,3 +27,5 @@ $ ./manage.py migrate
 Modifier le fichier blog/admin.py
 ### Créer les fichiers et les templates associer
 Modifier les fichiers blog/views et blog/templates
+## Boostrap 4.0 avec Django Crispy
+[CRISPY](https://simpleisbetterthancomplex.com/tutorial/2018/08/13/how-to-use-bootstrap-4-forms-with-django.html)

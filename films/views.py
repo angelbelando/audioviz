@@ -1,11 +1,61 @@
 from django.views import generic
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.views import View
 from django.shortcuts import redirect, render
 from django.views.generic.base import TemplateResponseMixin
 from django.db.models import Count
 from .models import Film, Role_Film, Acteur, Genre_Film
 from blog.models import Post
+from .forms import ContactForm
+from django.core.mail import send_mail, get_connection
+
+
+class Contact(generic.FormView):
+    
+    # def get(self, request):
+    #     submitted = False
+    #     form = ContactForm()
+    #     if 'submitted' in request.GET:
+    #         submitted = True
+    #     return render(request, 'contact.html', {'form': form, 'submitted': submitted})
+
+    # def post(self, request):
+    #     submitted = False
+    #     form = ContactForm(request.POST)
+    #     if form.is_valid():
+    #         cd = form.cleaned_data
+    #         # assert False
+    #         con = get_connection('django.core.mail.backends.console.EmailBackend')
+    #         send_mail(cd['subject'], 
+    #         cd['message'],
+    #         cd.get('email', 'noreply@audioviz.fr'),
+    #         ['angel.belando@orange.fr'],
+    #         connection=con
+    #         )
+    #         form.save()
+    #         return HttpResponseRedirect('?submitted=True')  
+    #     return render(request, 'contact.html', {'form': form, 'submitted': submitted})      
+    
+    template_name = 'contact.html'
+    form_class = ContactForm
+    success_url = 'thanks/'
+
+    def form_valid(self, form):
+        # This method is called when valid form data has been POSTed.
+        # It should return an HttpResponse.
+        cd = form.cleaned_data
+        # assert False
+        # envoi message email 
+        con = get_connection('django.core.mail.backends.console.EmailBackend')
+        send_mail(cd['subject'], 
+        cd['message'],
+        cd.get('email', 'noreply@audioviz.fr'),
+        ['angel.belando@orange.fr'],
+        connection=con
+        )
+        # sauvegarde du contact dans le modèle
+        form.save()
+        return super().form_valid(form)
 
 class HomeFilms(generic.ListView):
     model = Film

@@ -26,7 +26,6 @@ urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('boutique/', TemplateView.as_view(template_name='boutique.html'), name='boutique'),
     path('audioviz/', TemplateView.as_view(template_name='audioviz.html'), name='audioviz'),
-    path('contact/', TemplateView.as_view(template_name='contact.html'), name='contact'),
     path('Blog/', TemplateView.as_view(template_name='audioviz_Blogger.html'), name='audioviz_blogger'),
     path('blog/', include('blog.urls')), 
 ] 

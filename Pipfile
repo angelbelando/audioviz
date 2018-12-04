@@ -14,6 +14,7 @@ dj-static = "*"
 django-el-pagination = "*"
 django-pagedown = "*"
 django-simple-math-captcha = "*"
+django-crispy-forms = "*"
 
 [dev-packages]
 

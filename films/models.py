@@ -84,3 +84,14 @@ class Role_Film(models.Model):
         verbose_name = "film/Acteur/rôle"
     def __str__(self):
         return self.roledescription
+
+class Contact(models.Model):
+    first_name = models.CharField('Votre prénom', max_length=100)
+    name = models.CharField('Votre nom', max_length=100)
+    email_address = models.EmailField('Votre adresse email')
+    subject = models.CharField('Objet de votre messsage', max_length=100)
+    message = models.TextField('Texte de votre message')
+    class Meta:
+        verbose_name = "Contact"
+    def __str__(self):
+        return f"{self.first_name} - {self.name}"

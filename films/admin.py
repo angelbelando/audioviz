@@ -3,7 +3,7 @@ from django.utils.safestring import mark_safe
 # from django.core.urlresolvers import reverse
 from django.contrib.contenttypes.models import ContentType
 
-from .models import Film, Genre_Film, Acteur, Role, Role_Film, Video_Type, Video, Photo
+from .models import Film, Genre_Film, Acteur, Role, Role_Film, Video_Type, Video, Photo, Contact
 # admin.site.register(Film)
 class RoleFilmAdmin(admin.TabularInline):
     model = Role_Film
@@ -28,3 +28,4 @@ admin.site.register(Role)
 admin.site.register(Video_Type)
 admin.site.register(Video)
 admin.site.register(Photo)
+admin.site.register(Contact)
