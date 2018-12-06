@@ -29,3 +29,5 @@ Modifier le fichier blog/admin.py
 Modifier les fichiers blog/views et blog/templates
 ## Boostrap 4.0 avec Django Crispy
 [CRISPY](https://simpleisbetterthancomplex.com/tutorial/2018/08/13/how-to-use-bootstrap-4-forms-with-django.html)
+## Activer l'environnement (console)  virtuel PIPENV 
+$ pipenv shell
