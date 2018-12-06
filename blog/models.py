@@ -12,7 +12,7 @@ DIR_PHOTOS_BLOG = 'Images/PhotosBlog/'
 
 class Post(models.Model):
     title = models.CharField(max_length=200, verbose_name=_("titre"))
-    slug = models.SlugField("Reference",unique=True)
+    slug = models.SlugField("Reference")
     bodytext = models.TextField(verbose_name=_("message"))
     image = models.ImageField("Photo", upload_to=DIR_PHOTOS_BLOG, blank=True, default = "")
 
