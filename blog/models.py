@@ -12,7 +12,7 @@ DIR_PHOTOS_BLOG = 'Images/PhotosBlog/'
 
 class Post(models.Model):
     title = models.CharField(max_length=200, verbose_name=_("titre"))
-    slug = models.SlugField("Reference")
+    slug = models.SlugField("Reference",unique=True)
     bodytext = models.TextField(verbose_name=_("message"))
     image = models.ImageField("Photo", upload_to=DIR_PHOTOS_BLOG, blank=True, default = "")
 
@@ -45,35 +45,4 @@ class Post(models.Model):
         }
 
         return reverse('blog_detail', kwargs=kwargs)
-
-
-class Comment(models.Model):
-    post = models.ForeignKey(
-        Post, related_name='comments', verbose_name=_("post"),
-        on_delete=models.CASCADE)
-    bodytext = models.TextField(verbose_name=_("message"))
-
-    post_date = models.DateTimeField(
-        auto_now_add=True, verbose_name=_("post date"))
-    ip_address = models.GenericIPAddressField(
-        default='0.0.0.0', verbose_name=_("ip address"))
-
-    user = models.ForeignKey(
-        settings.AUTH_USER_MODEL, null=True, blank=True,
-        verbose_name=_("user"), related_name='comment_user',
-        on_delete=models.SET_NULL)
-    user_name = models.CharField(
-        max_length=50, default='anonymous', verbose_name=_("user name"))
-    user_email = models.EmailField(blank=True, verbose_name=_("user email"))
-
-    def __str__(self):
-        return self.bodytext
-
-    class Meta:
-        verbose_name = _('comment')
-        verbose_name_plural = _('comments')
-        ordering = ['post_date']
-
-
-# post_save.connect(save_comment, sender=Comment)
 

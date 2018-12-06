@@ -11,31 +11,6 @@ from django.core.mail import send_mail, get_connection
 
 
 class Contact(generic.FormView):
-    
-    # def get(self, request):
-    #     submitted = False
-    #     form = ContactForm()
-    #     if 'submitted' in request.GET:
-    #         submitted = True
-    #     return render(request, 'contact.html', {'form': form, 'submitted': submitted})
-
-    # def post(self, request):
-    #     submitted = False
-    #     form = ContactForm(request.POST)
-    #     if form.is_valid():
-    #         cd = form.cleaned_data
-    #         # assert False
-    #         con = get_connection('django.core.mail.backends.console.EmailBackend')
-    #         send_mail(cd['subject'], 
-    #         cd['message'],
-    #         cd.get('email', 'noreply@audioviz.fr'),
-    #         ['angel.belando@orange.fr'],
-    #         connection=con
-    #         )
-    #         form.save()
-    #         return HttpResponseRedirect('?submitted=True')  
-    #     return render(request, 'contact.html', {'form': form, 'submitted': submitted})      
-    
     template_name = 'contact.html'
     form_class = ContactForm
     success_url = 'thanks/'
@@ -61,7 +36,7 @@ class HomeFilms(generic.ListView):
     model = Film
     template_name = 'film/home_films.html'
     context_object_name = 'films'
-    paginate_by = 10
+    paginate_by = 18
 
     def get_queryset(self):
         if self.request.GET.get('year_search'):
@@ -71,33 +46,33 @@ class HomeFilms(generic.ListView):
         if  self.request.GET.get('genre_search'):
              genre_search  = self.request.GET.get('genre_search')
         else:
-            genre_search = "Null"
+            genre_search = "Tous"
         if self.request.GET.get('query'):
             query  = self.request.GET.get('query')
         else:
-            query = "Null"
-        if year_search!=0 and genre_search!="Null" and query!="Null":  
+            query = "Tous"
+        if year_search!=0 and genre_search!="Tous" and query!="Tous":  
             # requête 1     
             queryset = Film.objects.filter(an_creation=year_search).filter(genre_id=genre_search).filter(title__icontains=query)
-        elif year_search!=0 and genre_search!="Null" and query=="Null":
+        elif year_search!=0 and genre_search!="Tous" and query=="Tous":
             # requête 2 
             queryset = Film.objects.filter(an_creation=year_search).filter(genre_id=genre_search)
-        elif year_search!=0 and genre_search=="Null" and query=="Null":
+        elif year_search!=0 and genre_search=="Tous" and query=="Tous":
             # requête 3
             queryset = Film.objects.filter(an_creation=year_search)
-        elif year_search!=0 and genre_search=="Null" and query!="Null":
+        elif year_search!=0 and genre_search=="Tous" and query!="Tous":
             # requête 4
             queryset = Film.objects.filter(an_creation=year_search).filter(title__icontains=query)
-        elif year_search==0 and genre_search!="Null" and query=="Null":
+        elif year_search==0 and genre_search!="Tous" and query=="tous":
             # requête 5
             queryset = Film.objects.filter(genre_id=genre_search)
-        elif year_search==0 and genre_search=="Null" and query!="Null":
+        elif year_search==0 and genre_search=="Tous" and query!="Tous":
             # requête 6
             queryset = Film.objects.filter(title__icontains=query) 
-        elif year_search==0 and genre_search!="Null" and query!="Null":   
+        elif year_search==0 and genre_search!="Tous" and query!="Tous":   
             queryset = Film.objects.filter(genre_id=genre_search).filter(title__icontains=query)
         else:
-            queryset = Film.objects.order_by('-created_at')
+            queryset = Film.objects.order_by('-an_creation')
         return queryset
 
     def get_context_data(self, **kwargs):
@@ -108,25 +83,42 @@ class HomeFilms(generic.ListView):
         if  self.request.GET.get('genre_search'):
              genre_search  = self.request.GET.get('genre_search')
         else:
-            genre_search = "Null"
+            genre_search = "Tous"
         if self.request.GET.get('query'):
             query  = self.request.GET.get('query')
         else:
-            query = "Null"
-        # Call the base implementation first to get a context
+            query = "Tous"
+        if year_search==0 and genre_search=="Tous" and query=="Tous":
+            top_filter = False
+        else:
+            top_filter = True        # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
         context["genres"] = Genre_Film.objects.all()
         context["years"] =  Film.objects.distinct().values('an_creation').order_by('-an_creation')
-        context["Filters"] = f"{genre_search}/{year_search}/{query}"
+        if year_search == 0:
+            year_return = "Toutes"
+        else:
+            year_return = str(year_search)
+        name_genre = "Tous"
+        if genre_search != "Tous":
+            genre = Genre_Film.objects.get(id=genre_search)
+            name_genre = genre.genre
+        context["Filters"] = f"Genre: {name_genre} - Année: {year_return} - Titre: {query}"
+        context["TopFilter"] = top_filter
         return context
 class Index(generic.ListView):
     model = Film
     template_name = 'film/index.html'
     context_object_name = 'films'
-    paginate_by = 10
+    paginate_by = 18
+    
+    def get_queryset(self):
+        queryset = Film.objects.order_by('-an_creation')
+        return queryset
+        
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['posts']= Post.objects.all().order_by('-post_date')[:4]
+        context['posts']= Post.objects.all().order_by('-post_date')[:3]
         return context
 class DetailFilm(generic.DetailView):
     model = Film
@@ -152,5 +144,7 @@ class DetailActeur(generic.DetailView):
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
+        pk_URL = self.kwargs.get(self.pk_url_kwarg, None) 
+        context['acteur_films'] = Role_Film.objects.filter(acteur_id=pk_URL).distinct('film_id')
         # recherche de l'ID de film pour accéder au modèle Film/Acteur/Role 
         return context

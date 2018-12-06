@@ -1,32 +1,100 @@
-<div class="row d-flex-left m-2 ml-1">
-<form  id="searchForm" action="#" method="get" accept-charset="utf-8">
-    <div class="input-group btn-group-sm">
-            <div class="input-group-prepend">
-              <label class="input-group-text bg-nav-film text-white" for="inputGroupSelect01">Genre</label>
-            </div>
-            <select class="custom-select" id="inputGroupSelect01" name="genre_search">
-              <option selected></option>
-              {% for genre in genres %}
-              <option value="{{ genre.id }}">{{ genre.genre }}</option>
-              {% endfor %}
-            </select> <!--fin Bouton de filtre  Genre-->
-            <div class="input-group-prepend">
-              <label class="input-group-text bg-nav-film text-white" for="inputGroupSelect01">Année</label>
-            </div>
-            <select class="custom-select" id="inputGroupSelect01" name="year_search">
-              <option selected>{{ year.an_creation }}</option>
-              {% for year in years %}
-              <option value="{{ year.an_creation }}">{{ year.an_creation }}</option>
-              {% endfor %}
-            </select>
-            
-            <div class="input-group-prepend">
-                <label class="input-group-text bg-nav-film text-white" for="inputGroupSelect01">Titre</label>
-            </div>
-            <input type="search" name="query" placeholder="Rechercher" class="form-control" />
-            <div class="input-group-append">
-                <button class="btn bg-nav-film text-white"><i class="fas fa-play"></i></button>
-            </div>           
+
+
+<div class="row d-flex flex-row-reverse m-0 p-2 ml-1">
+  
+  <div class="">
+      <button type="button" class="btn bg-nav-film text-white" data-toggle="modal" data-target="#searchFilm" data-whatever="@mdo"><i class="fas fa-filter mr-1"></i>Filter Affichage Film</button>
+  </div>
+  <form  id="searchForm" action="#" method="get" accept-charset="utf-8">
+  {% if TopFilter %}
+    <div class="mr-2">
+      <div class="input-group-append">
+          <button class="btn bg-nav-film text-white"><i class="fas fa-times mr-1"></i>Afficher Tous</button>
+      </div>   
+  </div> 
+ 
+  </form>
+  <div class="mr-auto text-white mr-4 h5">{{ Filters }}</div>
+  {% endif%}
+    <div class="modal fade" id="searchFilm" tabindex="-1" role="dialog" aria-labelledby="Rechercher un film" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title h4" id="exampleModalLabel">Veuillez saisir vos critères de recherche</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <form  id="searchForm" action="#" method="get" accept-charset="utf-8">
+                  
+                  <div class="form-group row p-2">
+                      <label class="col-sm-2 col-form-label" >Genre</label>
+                      <div class="col-sm-10">
+                          <select class="custom-select control-form" name="genre_search" >
+                              <option selected></option>
+                              {% for genre in genres %}
+                              <option value="{{ genre.id }}">{{ genre.genre }}</option>
+                              {% endfor %}
+                            </select> <!--fin Bouton de filtre  Genre-->
+                      </div>
+                  </div>
+                    <div class="form-group row p-2">
+                      <label class="col-sm-2 col-form-label" >Année</label>
+                      <div class="col-sm-10">
+                          <select class="custom-select"  name="year_search" >
+                              <option selected>{{ year.an_creation }}</option>
+                              {% for year in years %}
+                              <option value="{{ year.an_creation }}">{{ year.an_creation }}</option>
+                              {% endfor %}
+                            </select>
+                      </div>
+                    </div>
+                    <div class="form-group row p-2">
+                        <label class="col-sm-2 col-form-label" >Titre </label>
+                        <div class="col-sm-10 control-form">
+                            <input type="search" name="query" placeholder="Rechercher par Titre" class="form-control" />
+                        </div>
+                    </div>
+        
+                    <div class="modal-footer row">
+                      <div clas="col-12 col-lg-6">
+                          <button type="button" class="btn btn-light" data-dismiss="modal">Fermer</button>
+                      </div>
+
+                      <div class="input-group-append col-12 col-lg-6">
+                          <button class="btn bg-nav-film text-white"><i class="fas fa-play"></i> Lancer la recherche</button>
+                      </div>   
+                    
+                    </div>        
+        
+              </form>
+      
+          </div>
+          
+        </div>
+      </div>
     </div>
+    
 </form>
 </div>
+{% if is_paginated %}
+<nav class="ml-5">
+  <ul class="pagination justify-content-center">
+    {% if page_obj.has_previous %}
+      <li class="page-item "><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo;</a></li>
+    {% endif %}
+    {% for i in page_obj.paginator.page_range %}
+      {% if page_obj.number == i %}
+        <li class="page-item active"><a href="#" class="page-link">{{ page_obj.number }}</a></li>
+      {% else %}
+        <li class="page-item" ><a href="?page={{ i }}" class="page-link">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+      <li class="page-item"><a href="?page={{ page_obj.next_page_number }}" class="page-link">&raquo;</a></li
+    {% endif %}
+  </ul>
+</nav>
+{% endif %}
+

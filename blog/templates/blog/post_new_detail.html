@@ -1,0 +1,34 @@
+{% extends 'film/commun.html' %}
+
+{% block content %}
+<!-- liste des champs se trouvant dans le contexte et pouvant être affichés 
+		{{ post.id }} 
+		{{ post.title}}
+		{{ post.slug }}
+		{{ post.bodytext }}
+		{{ post.post_date }}
+		{{ post.modified }}
+		{{ post.allow_comments }}
+		{{ post.comment_count }}
+		{{ post.posted_by_id }} 
+		{{ post.image }} 
+		{{ post.image.url }} 
+		{{ post.get_absolute_url }}
+-->
+<main class="container-fluid mb-4" >
+	<section class="row my-1">
+		<div class="col-12">		 
+		   <article class="mb-1">		  
+				 <figure class="figure float-lg-left mr-3">
+					 <img src="{{ post.image.url }}" alt="{{ post.title }}" width="720" height="400" />
+				 </figure> <!--End of figure-->
+				 <h1 class="h2">{{ post.title}}</h1>
+				 <p>{{ post.bodytext }}</p>
+				 <p class="font-italic">Publié le {{ post.post_date }} par {{ post.posted_by }} </p>
+		   </article> <!--End article-->
+		</div><!--End first column-->
+	</section><!--end section.row-->
+</main><!--end main.container-fluid-->
+
+
+{% endblock %}

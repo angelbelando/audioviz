@@ -9,11 +9,19 @@
     background-color:#3498DB ;
 }
 .bg-image {
-	background-image: url(../img/video.jpg);
-	background-repeat: no-repeat;
+    /* background-image: url(../img/light-1282314_1920.jpg); */
+	background-image: url(../img/film-1668918_1280_flou.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 }
+.bg-contact {
+	background-image: url(../img/water-1330252_1920.jpg);
+	background-repeat: no-repeat;
+    background-size: cover;
+}
 .blank {
     color: white;
+}
+.line-height-acteur {
+    line-height:30px;
 }

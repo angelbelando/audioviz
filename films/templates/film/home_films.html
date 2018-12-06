@@ -1,5 +1,8 @@
 {% extends 'film/commun.html' %}
 {% block content %}
-  {% include 'film/searchfilms.html' %}
-  {% include 'film/listefilms.html' with listefilms_title='Nos derniers films' %}
+<div class="bg-image">
+    {% include 'film/searchfilms.html' %}
+    {% include 'film/listefilms.html' with listefilms_title='Nos derniers films' %}
+</div>
+  
 {% endblock %}

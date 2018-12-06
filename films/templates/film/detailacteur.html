@@ -5,24 +5,50 @@
 <!-- ------------------------travail -->
 <main class="container-fluid mb-4" >
    <section class="row my-4">
-       <div class="col-12 col-md-9">
+       <div class="col-12 col-lg-5">
          
           <article class="mb-3">
                 <h1 class="h1">{{ acteur.name }}</h1>
-                <p class="p">{{ acteur.resumeCV }}</p>
+               
                 <figure class="figure float-lg-left mr-3">
                     {% if  acteur.photoActeur %}
-                    <img src="{{ acteur.photoActeur.url }}" alt="{{ acteur.name }}" />  
+                    <img src="{{ acteur.photoActeur.url }}" alt="{{ acteur.name }}" class="img-fluid"/>  
                     {% else%}
                     <img src="#" alt="{{ acteur.name }}" />
                     {% endif %}
-                    <figcaption class="figure-caption">{{ acteur.name}}</figcaption>
-                </figure>
-                
+                </figure>  
+                <p class="p">{{ acteur.resumeCV }}</p>
           </article>
-          </section><!--end Category section-->
       </div><!--End second column-->
-  </section><!--end section.row-->
+      <div class="col-12 col-lg-7">
+            <div class="list-group list-group-flush">
+                    {% for acteur_film in acteur_films %}
+                    <article class="list-group-item list-group-item-action">
+                         <div class="row">
+                                <div class="col12 col-md-2">
+                                        <a href="{% url 'films:detail' acteur_film.film_id  %}""><img src="{{ acteur_film.film.picture.url }}" class="img-fluid img-thumbnail" alt="{{ post.title }}" ></a> 
+                                </div>
+                                <div class="col12 col-md-10">
+                                           <h1 class="h3">{{ acteur_film.role.name}} dans {{ acteur_film.film.title }}  </h1>
+                                           <p>{{ acteur_film.film.synopsis}} </p>
+
+                                </div><!---End second column of Article-->
+
+
+                                    <!-- 
+                                        titre = {{ acteur_film.film.title }} <br>
+                                synopsis = {{ acteur_film.film.synopsis}} <br>
+                               film_id =  {{ acteur_film.film_id }} <br>
+                                picture = {{ acteur_film.film.picture.url }} <br>
+                                role_id = {{ acteur_film.role.name}} <br>
+                                    -->
+
+                                
+                         </div>
+                    </article><!--end article.list-group-item-->
+                    {% endfor %}
+            </div><!--End div.list-group-->
+      </div>
    </section><!--end section.row-->
 </main><!--end main.container-fluid-->
 {% endblock %}

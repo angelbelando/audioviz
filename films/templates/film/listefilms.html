@@ -1,37 +1,41 @@
 
 
-<div>
 
-    {% if films %}
-    <section class="row m-1">
-    {% for film in films %}
-      <!-- films  -->    
-          <div class="col-lg-2 col-md-6">
-            <div class="card img-fluid">
-              <a href="/films/{{film.id}}"><img src="{{ film.picture.url }}" alt="{{ film.title }}" class="card-img-top" /></a> 
-            </div><!--End .card-->
-          </div><!--End first element-->   
-    {% endfor %}
-    </section><!--End section.row third row-->  
-  {% else %}
-    <div class="text-center">
-      Pas de film
-    </div>
-  {% endif %}
-  
-</div>
+{% if films %}
+  <section class="row m-1">
+  {% for film in films %}
+    <!-- films  -->    
+        <div class="col-lg-2 col-md-6">
+          <div class="card img-fluid mb-3">
+            <a href="/films/{{film.id}}"><img src="{{ film.picture.url }}" alt="{{ film.title }}" class="card-img-top" /></a> 
+          </div><!--End .card-->
+        </div><!--End first element-->   
+  {% endfor %}
+  </section><!--End section.row third row-->  
+{% else %}
+  <div class="text-center">
+    Pas de film
+  </div>
+{% endif %}
 
- <!--Begin Bottom pagination - Mise en forme-->
+
+<!--Begin Bottom pagination - Mise en forme-->
 {% if is_paginated %}
-   <nav>
-      <ul class="pagination justify-content-center">
-        {% if page_obj.has_previous %}
-          <li class="page-item"><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo;</a></li>
-        {% endif %}
-          <li class="page-item active"><a href="#" class="page-link">{{ page_obj.number }}/ {{ page_obj.paginator.num_pages }} </a></li>
-        {% if page_obj.has_next %}
-          <li class="page-item"><a href="?page={{ page_obj.next_page_number }}" class="page-link">&raquo;</a></li>
-        {% endif %}
-      </ul>
-   </nav>
+<nav>
+<ul class="pagination justify-content-center">
+  {% if page_obj.has_previous %}
+    <li class="page-item "><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo;</a></li>
+  {% endif %}
+  {% for i in page_obj.paginator.page_range %}
+    {% if page_obj.number == i %}
+      <li class="page-item active"><a href="#" class="page-link">{{ page_obj.number }}</a></li>
+    {% else %}
+      <li class="page-item" ><a href="?page={{ i }}" class="page-link">{{ i }}</a></li>
+    {% endif %}
+  {% endfor %}
+  {% if page_obj.has_next %}
+    <li class="page-item"><a href="?page={{ page_obj.next_page_number }}" class="page-link">&raquo;</a></li>
+  {% endif %}
+</ul>
+</nav>
 {% endif %}

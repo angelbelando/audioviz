@@ -6,7 +6,7 @@
           <article class="m-2">
               <div class="row d-flex border"></br>
                 <div class="col-sm-12 col-lg-5 border"">
-                <img class="img-fluid rounded float-left d-block mr-4 mt-2" src="{{ film.picture.url }}" alt="{{ film.title }}" />
+                <img class="img-fluid rounded float-left d-block mr-4 mt-2 mb-2" src="{{ film.picture.url }}" alt="{{ film.title }}" width="240" height="320"  />
                     <h1 class="h1">{{ film.title }}</h1>
                     <p>{{ film.synopsis}}</p>
                     <blockquote class="blockquote">
@@ -16,25 +16,28 @@
                     <strong>Genre : </strong>{{ film.genre }}
                     <strong>  Année : </strong>{{ film.an_creation }}
                     <br>
-                    {% for role_film_Autres in roles_film_Autres %} 
-                    <strong>{{ role_film_Autres.role }} :</strong>
-                    <a href="{% url 'films:detailacteur' role_film_Autres.acteur_id  %}">{{ role_film_Autres.acteur }}</a> <br>
-                    {% endfor %}   
-                   
-                    <strong>Acteurs :</strong>
-                    {% for role_film_Acteurs in roles_film_Acteurs %} 
-
-                        <a href="{% url 'films:detailacteur' role_film_Acteurs.acteur_id  %}">
-                        {{ role_film_Acteurs.acteur }}</a>
-                  
-                    {% endfor %}  
+                    <div class="line-height-acteur">
+                        {% for role_film_Autres in roles_film_Autres %} 
+                        <strong>{{ role_film_Autres.role }} :</strong>
+                        <a href="{% url 'films:detailacteur' role_film_Autres.acteur_id  %}">{{ role_film_Autres.acteur }}</a> <br>
+                        {% endfor %}   
+                       
+                        <strong>Acteurs :</strong>
+                        {% for role_film_Acteurs in roles_film_Acteurs %} 
+    
+                            <a href="{% url 'films:detailacteur' role_film_Acteurs.acteur_id  %}">
+                            {{ role_film_Acteurs.acteur }}</a>
+                      
+                        {% endfor %}  
+                    </div>
+                    
                     </p>
                     {% if film.photo.all %}
                     <div class="row col-12">
       
                           <div class="col-12 border">
                                  <div class="container-fluid">
-                                      <p class="h3 p-2 mb-1 text-center rounded">Gallerie de photos</p>
+                                      <p class="h3 p-2 mb-1 text-center rounded">Galerie de photos</p>
                                       <div class="tz-gallery">                               
                                           <div class="row">
                                               {% for photo in film.photo.all %}
@@ -66,9 +69,9 @@
                         <p class="h3 p-2 mb-1 text-center rounded">Suggestions</p>
                         {% for suggestion in suggestions %}  
                         {% if suggestion.title not in film.title %} 
-                        <a href="/films/{{suggestion.id}}"><img class="mx-auto d-block img-fluid" src="{{ suggestion.picture.url }}" alt="{{ suggestion.title }}" />  </a>                 
+                        <a href="/films/{{suggestion.id}}"><img class="mx-auto d-block img-fluid" src="{{ suggestion.picture.url }}" alt="{{ suggestion.title }}" width="180" height="240" />  </a>                 
                         {% endif %} 
-                    
+                        <br>
                         {% endfor %}                   
                     </div> 
               </div>
