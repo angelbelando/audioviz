@@ -63,7 +63,7 @@ class HomeFilms(generic.ListView):
         elif year_search!=0 and genre_search=="Tous" and query!="Tous":
             # requête 4
             queryset = Film.objects.filter(an_creation=year_search).filter(title__icontains=query)
-        elif year_search==0 and genre_search!="Tous" and query=="tous":
+        elif year_search==0 and genre_search!="Tous" and query=="Tous":
             # requête 5
             queryset = Film.objects.filter(genre_id=genre_search)
         elif year_search==0 and genre_search=="Tous" and query!="Tous":
