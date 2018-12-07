@@ -23,7 +23,7 @@
 					 <img src="{{ post.image.url }}" alt="{{ post.title }}" width="720" height="400" />
 				 </figure> <!--End of figure-->
 				 <h1 class="h2">{{ post.title}}</h1>
-				 <p>{{ post.bodytext }}</p>
+				 <p>{{ post.bodytext|safe }}</p>
 				 <p class="font-italic">Publié le {{ post.post_date }} par {{ post.posted_by }} </p>
 		   </article> <!--End article-->
 		</div><!--End first column-->

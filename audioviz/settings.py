@@ -45,8 +45,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    'import_export',
 ]
-
+INSTALLED_APPS += ('django_summernote', )
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -161,3 +162,22 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # EMAIL_HOST_USER = 'parsifal_app'
 # EMAIL_HOST_PASSWORD = 'mys3cr3tp4ssw0rd'
 # EMAIL_USE_TLS = True
+SUMMERNOTE_THEME = 'bs4'
+SUMMERNOTE_CONFIG = {
+    # You can put custom Summernote settings
+    'summernote': {
+        # As an example, using Summernote Air-mode
+        'airMode': False,
+
+        # Change editor size
+        'width': '75%',
+        'height': '480',
+
+        # Use proper language setting automatically (default)
+        'lang': 'fr-FR',
+
+        # Or, set editor language/locale forcely
+        'lang': 'fr-FR',
+       
+    },
+}

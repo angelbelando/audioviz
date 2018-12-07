@@ -28,6 +28,6 @@ urlpatterns = [
     path('audioviz/', TemplateView.as_view(template_name='audioviz.html'), name='audioviz'),
     path('Blog/', TemplateView.as_view(template_name='audioviz_Blogger.html'), name='audioviz_blogger'),
     path('blog/', include('blog.urls')), 
+    path('summernote/', include('django_summernote.urls')),
 ] 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-

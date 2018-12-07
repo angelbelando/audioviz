@@ -2,14 +2,22 @@ from django.contrib import admin
 from django.utils.safestring import mark_safe
 # from django.core.urlresolvers import reverse
 from django.contrib.contenttypes.models import ContentType
+from import_export import resources
+from django_summernote.admin import SummernoteModelAdmin
+from import_export.admin import ImportExportModelAdmin
 
 from .models import Film, Genre_Film, Acteur, Role, Role_Film, Video_Type, Video, Photo, Contact
 # admin.site.register(Film)
 class RoleFilmAdmin(admin.TabularInline):
     model = Role_Film
-  
 
-class FilmAdmin(admin.ModelAdmin):
+class FilmResource(resources.ModelResource):
+    class Meta:
+        model = Film
+
+class FilmAdmin(ImportExportModelAdmin, SummernoteModelAdmin):
+    summernote_fields = '__all__'
+    resource_class = FilmResource
     model = Film
     filter_vertical = ("video","photo",)
     inlines = [RoleFilmAdmin,]

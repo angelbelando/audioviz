@@ -25,7 +25,7 @@
 											 </div>
 											 <div class="col12 col-md-10">
 														<a href="{{ post.get_absolute_url }}"><h1 class="h3">{{ post.title }}</h1></a>
-														<p>{{ post.bodytext }}</p>
+														<p>{{ post.bodytext|safe }}</p>
 														<!-- <a href="{{ post.get_absolute_url }}" class="btn bg-nav-film text-white mt-auto">En savoir plus</a> -->
 											 </div><!---End second column of Article-->
 									 </div>

@@ -8,7 +8,7 @@
                 <div class="col-sm-12 col-lg-5 border"">
                 <img class="img-fluid rounded float-left d-block mr-4 mt-2 mb-2" src="{{ film.picture.url }}" alt="{{ film.title }}" width="240" height="320"  />
                     <h1 class="h1">{{ film.title }}</h1>
-                    <p>{{ film.synopsis}}</p>
+                    <p>{{ film.synopsis|safe }}</p>
                     <blockquote class="blockquote">
                         <footer class="blockquote-footer">Voici de quoi vous donner envie de voir ce fabuleux film. Bonne projection et à bientôt sur Audioviz.</cite></footer>
                     </blockquote>
