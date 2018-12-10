@@ -14,6 +14,7 @@ class RoleFilmAdmin(admin.TabularInline):
 class FilmResource(resources.ModelResource):
     class Meta:
         model = Film
+        fields = ('id', 'title', 'genre', 'synopsis','picture')
 
 class FilmAdmin(ImportExportModelAdmin, SummernoteModelAdmin):
     summernote_fields = '__all__'
