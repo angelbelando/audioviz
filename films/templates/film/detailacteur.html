@@ -30,7 +30,7 @@
                                 </div>
                                 <div class="col12 col-md-10">
                                            <h1 class="h3">{{ acteur_film.role.name}} dans {{ acteur_film.film.title }}  </h1>
-                                           <p>{{ acteur_film.film.synopsis}} </p>
+                                           <p>{{ acteur_film.film.synopsis|safe }} </p>
 
                                 </div><!---End second column of Article-->
 

@@ -7,11 +7,11 @@
               <div class="row d-flex border"></br>
                 <div class="col-sm-12 col-lg-5 border"">
                 <img class="img-fluid rounded float-left d-block mr-4 mt-2 mb-2" src="{{ film.picture.url }}" alt="{{ film.title }}" width="240" height="320"  />
-                    <h1 class="h1">{{ film.title }}</h1>
+                    <h1 class="h2">{{ film.title }}</h1>
                     <p>{{ film.synopsis|safe }}</p>
-                    <blockquote class="blockquote">
+                    <!-- <blockquote class="blockquote">
                         <footer class="blockquote-footer">Voici de quoi vous donner envie de voir ce fabuleux film. Bonne projection et à bientôt sur Audioviz.</cite></footer>
-                    </blockquote>
+                    </blockquote> -->
                     <p>
                     <strong>Genre : </strong>{{ film.genre }}
                     <strong>  Année : </strong>{{ film.an_creation }}
@@ -54,26 +54,43 @@
                       </div> 
                      {% endif %}
                 </div>
-                    <div class=" col-sm-12 col-lg-5 border">
-                            {% for video in film.video.all %}                       
-                                <p class="h4 p-2 mb-1 text-center rounded"">{{ video.name }}</p>
-                                <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/uX-UslzP_vE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-                                <div class="embed-responsive embed-responsive-16by9 float-left">
-                                  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ video.UrlVideo }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div> 
-                            
-                            {% endfor %}
-                    </div> 
+                <div class=" col-sm-12 col-lg-5 border">
+                    {% for video in film.video.all %} 
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="h4 p-2 mb-1 text-center rounded"">{{ video.name }}</p>
+                            <div class="embed-responsive embed-responsive-16by9 float-left">
+                            <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/uX-UslzP_vE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                            <iframe  class="embed-responsive-item" src="https://www.youtube.com/embed/{{ video.UrlVideo }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+
+                        </div>             
+                    </div>    
+                    {% endfor %}
+                </div> 
                     
-                    <div class=" col-sm-12 col-lg-2  border">
-                        <p class="h3 p-2 mb-1 text-center rounded">Suggestions</p>
-                        {% for suggestion in suggestions %}  
-                        {% if suggestion.title not in film.title %} 
-                        <a href="/films/{{suggestion.id}}"><img class="mx-auto d-block img-fluid" src="{{ suggestion.picture.url }}" alt="{{ suggestion.title }}" width="180" height="240" />  </a>                 
+                <div class="col-sm-12 col-lg-2  border">
+                      
+                            <div class="row">
+                              <div class="col-12">
+                                    <p class="h3 p-2 mb-1 text-center rounded">Suggestions</p>
+                              </div> 
+                            </div>
+                            
+                            {% for suggestion in suggestions %}  
+                            {% if suggestion.title not in film.title %} 
+                            <div class="row">
+                            <div class="col-lg-12">
+                                    <div class="card d-block">
+                                    <a href="/films/{{suggestion.id}}"><img class="card-img-top" src="{{ suggestion.picture.url }}" alt="{{ suggestion.title }}" /> </a>    
+                                    </div>         
+                            </div> 
+                            </div> 
+                            
+                         
                         {% endif %} 
-                        <br>
                         {% endfor %}                   
-                    </div> 
+                </div> 
               </div>
 
              

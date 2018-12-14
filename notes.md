@@ -15,7 +15,7 @@ $ ./manage.py startapp blog
 ### Rajouter l'application dans setting.py du site audioviz
 Modifier le blog INSTALLED_APPS du fichier audioviz/setting.py
 ### Créer le fichier urls.py de l'application BLOG
-.
+..:
 ### inclure le fichier urls.py de BLOG dans urls.py du site 
 path('blog/', include('blog.urls')), 
 ### Créer le modèle de l'application 

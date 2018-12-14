@@ -53,26 +53,26 @@ class HomeFilms(generic.ListView):
             query = "Tous"
         if year_search!=0 and genre_search!="Tous" and query!="Tous":  
             # requête 1     
-            queryset = Film.objects.filter(an_creation=year_search).filter(genre_id=genre_search).filter(title__icontains=query)
+            queryset = Film.objects.filter(an_creation=year_search).filter(genre_id=genre_search).filter(title__icontains=query).filter(status='PUB')
         elif year_search!=0 and genre_search!="Tous" and query=="Tous":
             # requête 2 
-            queryset = Film.objects.filter(an_creation=year_search).filter(genre_id=genre_search)
+            queryset = Film.objects.filter(an_creation=year_search).filter(genre_id=genre_search).filter(status='PUB')
         elif year_search!=0 and genre_search=="Tous" and query=="Tous":
             # requête 3
-            queryset = Film.objects.filter(an_creation=year_search)
+            queryset = Film.objects.filter(an_creation=year_search).filter(status='PUB')
         elif year_search!=0 and genre_search=="Tous" and query!="Tous":
             # requête 4
-            queryset = Film.objects.filter(an_creation=year_search).filter(title__icontains=query)
+            queryset = Film.objects.filter(an_creation=year_search).filter(title__icontains=query).filter(status='PUB')
         elif year_search==0 and genre_search!="Tous" and query=="Tous":
             # requête 5
-            queryset = Film.objects.filter(genre_id=genre_search)
+            queryset = Film.objects.filter(genre_id=genre_search).filter(status='PUB')
         elif year_search==0 and genre_search=="Tous" and query!="Tous":
             # requête 6
-            queryset = Film.objects.filter(title__icontains=query) 
+            queryset = Film.objects.filter(title__icontains=query).filter(status='PUB')
         elif year_search==0 and genre_search!="Tous" and query!="Tous":   
-            queryset = Film.objects.filter(genre_id=genre_search).filter(title__icontains=query)
+            queryset = Film.objects.filter(genre_id=genre_search).filter(title__icontains=query).filter(status='PUB')
         else:
-            queryset = Film.objects.order_by('-an_creation')
+            queryset = Film.objects.order_by('-an_creation').filter(status='PUB')
         return queryset
 
     def get_context_data(self, **kwargs):
@@ -113,7 +113,7 @@ class Index(generic.ListView):
     paginate_by = 18
     
     def get_queryset(self):
-        queryset = Film.objects.order_by('-an_creation')
+        queryset = Film.objects.order_by('-an_creation').filter(status='PUB')
         return queryset
         
     def get_context_data(self, **kwargs):
@@ -129,11 +129,10 @@ class DetailFilm(generic.DetailView):
         context = super().get_context_data(**kwargs)
         # recherche de l'ID de film pour accéder au modèle Film/Acteur/Role
         pk_URL = self.kwargs.get(self.pk_url_kwarg, None)
-        film_corrent = Film.objects.get(pk=pk_URL)
-        context['roles_film_Autres'] = Role_Film.objects.filter(film_id=pk_URL).order_by('role').exclude(role_id=6)
-        context['roles_film_Acteurs'] = Role_Film.objects.filter(film_id=pk_URL).order_by('role').filter(role_id=6)
-        context['suggestions'] = Film.objects.filter(genre_id=film_corrent.genre_id) 
-        context['ACTEUR'] = 'Acteur'
+        film_current = Film.objects.get(id=pk_URL)
+        context['roles_film_Autres'] = Role_Film.objects.filter(film_id=pk_URL).order_by('role').exclude(role_id=1)
+        context['roles_film_Acteurs'] = Role_Film.objects.filter(film_id=pk_URL).order_by('role').filter(role_id=1)
+        context['suggestions'] = Film.objects.filter(status='PUB').filter(genre_id=film_current.genre_id).order_by('-an_creation')[:4]
         return context
 
 class DetailActeur(generic.DetailView):
