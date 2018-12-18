@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'import_export',
+    'grappelli',
 ]
 INSTALLED_APPS += ('django_summernote', )
 MIDDLEWARE = [

@@ -22,10 +22,10 @@ class FilmAdmin(ImportExportModelAdmin, SummernoteModelAdmin):
     model = Film
     filter_vertical = ("video","photo",)
     inlines = [RoleFilmAdmin,]
-    list_filter = ['genre', 'an_creation']
-    list_display = ["title", "genre", 'synopsis']
+    list_filter = ['genre', 'an_creation', 'status']
+    list_display = ["title", "status", "genre", 'synopsis']
     fields = ["title", "status", "genre", 'synopsis', 'an_creation', 'picture', 'video', 'photo']
-
+    search_fields = ['title',]
     # readonly_fields = []
 
 admin.site.register(Film, FilmAdmin)

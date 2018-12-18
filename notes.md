@@ -35,3 +35,9 @@ $ pipenv shell
 $ pipenv install django-import-export
 ## Installation Richtext editor Summernote 
 $ pipenv install django-summernote
+## Parser HTML 
+$ pip install BeautifulSoup
+## Connecteur MYSQL 
+
+## creation d'un nouveau projet DJANGO
+django-admin startproject VanEsthetique
