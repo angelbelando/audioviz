@@ -25,10 +25,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '2oct_bcq26rqqawm%7t9p+tbxnr674@c6#v1$)dr7tzf312c0c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# if os.environ.get('ENV') == 'PROD':
-#     DEBUG = False
-# else:
-DEBUG = True
+if os.environ.get('ENV') == 'PROD':
+    DEBUG = False
+else:
+    DEBUG = True
 
 ALLOWED_HOSTS = ['audioviz-fr.herokuapp.com', '127.0.0.1']
 

@@ -4,7 +4,6 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "*"
 pillow = "*"
 whitenoise = "*"
 dj-database-url = "*"
@@ -18,6 +17,9 @@ django-crispy-forms = "*"
 django-import-export = "*"
 django-summernote = "*"
 django-grappelli = "*"
+django = "*"
+pyyaml = "*"
+psycopg2 = "*"
 
 [dev-packages]
 
