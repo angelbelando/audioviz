@@ -1,11 +1,11 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "5575bb048eaf68d3eac26fdc24854ebddb66c6ca0ef0295c2dc189cacf49c575"
+            "sha256": "015b081f60e1b629904866bfad412900eaf80198ca77e9eaac095a3e70a5c943"
         },
         "pipfile-spec": 6,
         "requires": {
-            "python_version": "3.7"
+            "python_version": "3.6"
         },
         "sources": [
             {
@@ -69,18 +69,17 @@
         },
         "django-grappelli": {
             "hashes": [
-                "sha256:edec8a53e08c69b0d9656f925ed54a469cee7e3795886e4da69f6b18ea5cf101"
+                "sha256:c4a98416c41eecaff99e104c18d8d71717305b8466b5de40d3c80d734a9297fb"
             ],
             "index": "pypi",
-            "version": "==2.12.1"
+            "version": "==2.12.2"
         },
         "django-import-export": {
             "hashes": [
-                "sha256:51823434e06721725e0e51b8da424b3c0e915c93cbb65b607464e3d9613f200e",
-                "sha256:54d0c9a0e0b0513c9db7ea47c41e6499ffe576e13f724d37003e18d974f5c3b5"
+                "sha256:99fae7d963af4ade97af9237a843f250312421fa4ee350a3b735fcc5684c3fb5"
             ],
             "index": "pypi",
-            "version": "==1.1.0"
+            "version": "==1.2.0"
         },
         "django-pagedown": {
             "hashes": [
