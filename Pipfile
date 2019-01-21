@@ -19,7 +19,6 @@ django-summernote = "*"
 django-grappelli = "*"
 django = "*"
 pyyaml = "*"
-psycopg2 = "*"
 
 [dev-packages]
 
