@@ -40,4 +40,13 @@ $ pip install BeautifulSoup
 ## Connecteur MYSQL 
 
 ## creation d'un nouveau projet DJANGO
+
 django-admin startproject VanEsthetique
+
+## création d'une clé secrète
+
+```python
+import random, string
+
+"".join([random.choice(string.printable) for _ in range(24)])
+```
