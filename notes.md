@@ -33,10 +33,13 @@ Modifier les fichiers blog/views et blog/templates
 $ pipenv shell
 ## Installation django import/export 
 $ pipenv install django-import-export
+
 ## Installation Richtext editor Summernote 
 $ pipenv install django-summernote
+
 ## Parser HTML 
 $ pip install BeautifulSoup
+
 ## Connecteur MYSQL 
 
 ## creation d'un nouveau projet DJANGO
