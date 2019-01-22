@@ -87,4 +87,9 @@ import random, string
 "".join([random.choice(string.printable) for _ in range(24)])
 ```
 
-## Installation du module Grappeli pour administrer le site django
+## Installation du module jet pour administrer le site django
+[Suivre documentation de jet](https://jet.readthedocs.io/en/latest/)
+
+## Attention aux nomx des répertoires
+il faut éviter les mauscules car linux est **case sensitive** mais pas windows
+exemple : /media/images/photos
