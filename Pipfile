@@ -16,9 +16,10 @@ django-simple-math-captcha = "*"
 django-crispy-forms = "*"
 django-import-export = "*"
 django-summernote = "*"
-django-grappelli = "*"
 django = "*"
 pyyaml = "*"
+psycopg2 = "*"
+django-jet = "*"
 
 [dev-packages]
 

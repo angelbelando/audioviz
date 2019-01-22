@@ -81,7 +81,7 @@ class Role_Film(models.Model):
     acteur = models.ForeignKey(Acteur, on_delete=models.CASCADE, blank=True, default = "")
     roledescription = models.CharField("Role Description", max_length=64, blank=True, default = "")
     class Meta:
-        verbose_name = "film/Acteur/rôle"
+        verbose_name = "Rôles des participants dans le film"
     def __str__(self):
         return self.roledescription
 

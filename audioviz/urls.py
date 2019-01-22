@@ -23,8 +23,8 @@ from films  import views
 urlpatterns = [
     path('', views.Index.as_view(), name='index'),
     path('films/', include('films.urls', namespace='films')),
+    path('jet/', include('jet.urls', 'jet')),
     path('admin/', admin.site.urls, name='admin'),
-    path('grappelli/', include('grappelli.urls')),
     path('boutique/', TemplateView.as_view(template_name='boutique.html'), name='boutique'),
     path('audioviz/', TemplateView.as_view(template_name='audioviz.html'), name='audioviz'),
     path('Blog/', TemplateView.as_view(template_name='audioviz_Blogger.html'), name='audioviz_blogger'),
