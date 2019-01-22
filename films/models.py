@@ -6,8 +6,8 @@ FILM_STATUS = (
     ('PUB', 'Publié'),     
     ('ARC', 'Archivé')
 )
-DIR_PHOTOS = 'Images/Photos/'
-DIR_AFFICHES = 'Images/AffichesFilms/'
+DIR_PHOTOS = 'images/Photos/'
+DIR_AFFICHES = 'images/AffichesFilms/'
 TODAY = date.today()
 YEAR = TODAY.year
 class Genre_Film(models.Model):
