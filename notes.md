@@ -91,5 +91,54 @@ import random, string
 [Suivre documentation de jet](https://jet.readthedocs.io/en/latest/)
 
 ## Attention aux nomx des répertoires
+
+
 il faut éviter les mauscules car linux est **case sensitive** mais pas windows
 exemple : /media/images/photos
+
+## lancer Psql en ligne de commande 
+
+```bash
+psql -d bd_audioviz
+bd_audioviz=> 
+```
+```sql
+SELECT * FROM films_film;
+```
+## Création load Banlancer pour gestion https  
+
+[Digital OCEAN - Load Balancer](https://www.digitalocean.com/docs/networking/load-balancers/how-to/lets-encrypt/)
+
+## Certificat avec NGINX 
+[Cerbot](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-18-04)
+Please choose whether or not to redirect HTTP traffic to HTTPS, removing HTTP access.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+1: No redirect - Make no further changes to the webserver configuration.
+2: Redirect - Make all requests redirect to secure HTTPS access. Choose this for
+new sites, or if you're confident your site works on HTTPS. You can undo this
+change by editing your web server's configuration.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Select the appropriate number [1-2] then [enter] (press 'c' to cancel): 2
+Redirecting all traffic on port 80 to ssl in /etc/nginx/sites-enabled/default
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Congratulations! You have successfully enabled https://angel-belando.fr
+
+You should test your configuration at:
+https://www.ssllabs.com/ssltest/analyze.html?d=angel-belando.fr
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+IMPORTANT NOTES:
+ - Congratulations! Your certificate and chain have been saved at:
+   /etc/letsencrypt/live/angel-belando.fr/fullchain.pem
+   Your key file has been saved at:
+   /etc/letsencrypt/live/angel-belando.fr/privkey.pem
+   Your cert will expire on 2019-04-23. To obtain a new or tweaked
+   version of this certificate in the future, simply run certbot again
+   with the "certonly" option. To non-interactively renew *all* of
+   your certificates, run "certbot renew"
+ - If you like Certbot, please consider supporting our work by
+   Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+   Donating to EFF:                    https://eff.org/donate-le
+
+## Reprise des films audioviz

@@ -32,7 +32,10 @@ class FilmAdmin(SummernoteModelAdmin, admin.ModelAdmin):
 admin.site.register(Film, FilmAdmin)
 
 admin.site.register(Genre_Film)
-admin.site.register(Acteur)
+class ActeurAdmin(admin.ModelAdmin):
+    search_fields = ['name',]
+admin.site.register(Acteur, ActeurAdmin)
+
 admin.site.register(Role)
 # admin.site.register(Role_Film)
 admin.site.register(Video_Type)

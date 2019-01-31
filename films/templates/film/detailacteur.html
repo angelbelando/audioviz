@@ -23,6 +23,7 @@
       <div class="col-12 col-lg-7">
             <div class="list-group list-group-flush">
                     {% for acteur_film in acteur_films %}
+                    {% if acteur_film.film.status == 'PUB' %}
                     <article class="list-group-item list-group-item-action">
                          <div class="row">
                                 <div class="col12 col-md-2">
@@ -41,11 +42,10 @@
                                film_id =  {{ acteur_film.film_id }} <br>
                                 picture = {{ acteur_film.film.picture.url }} <br>
                                 role_id = {{ acteur_film.role.name}} <br>
-                                    -->
-
-                                
+                                    -->      
                          </div>
                     </article><!--end article.list-group-item-->
+                    {% endif %}
                     {% endfor %}
             </div><!--End div.list-group-->
       </div>

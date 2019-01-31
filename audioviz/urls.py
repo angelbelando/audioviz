@@ -20,6 +20,7 @@ from django.urls import include, path
 from django.contrib import admin
 
 from films  import views
+
 urlpatterns = [
     path('', views.Index.as_view(), name='index'),
     path('films/', include('films.urls', namespace='films')),
@@ -32,3 +33,13 @@ urlpatterns = [
     path('summernote/', include('django_summernote.urls')),
 ] 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns = [
+        path('__debug__/', include(debug_toolbar.urls)),
+
+        # For django versions before 2.0:
+        # url(r'^__debug__/', include(debug_toolbar.urls)),
+
+    ] + urlpatterns
