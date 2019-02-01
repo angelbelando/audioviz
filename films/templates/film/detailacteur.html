@@ -12,12 +12,12 @@
                
                 <figure class="figure float-lg-left mr-3">
                     {% if  acteur.photoActeur %}
-                    <img src="{{ acteur.photoActeur.url }}" alt="{{ acteur.name }}" class="img-fluid"/>  
+                    <img src="{{ acteur.photoActeur.url }}" alt="{{ acteur.name }}" class="img-fluid rounded-circle""/>  
                     {% else%}
                     <img src="#" alt="{{ acteur.name }}" />
                     {% endif %}
                 </figure>  
-                <p class="p">{{ acteur.resumeCV }}</p>
+                <p class="p">{{ acteur.resumeCV|safe }}</p>
           </article>
       </div><!--End second column-->
       <div class="col-12 col-lg-7">

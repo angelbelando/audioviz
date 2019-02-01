@@ -4,8 +4,8 @@
 
 <main class="container-fluid" >
           <article class="m-2">
-              <div class="row d-flex border"></br>
-                <div class="col-sm-12 col-lg-5 border"">
+              <div class="row d-flex"></br>
+                <div class="col-sm-12 col-lg-5"">
                 <img class="img-fluid rounded float-left d-block mr-4 mt-2 mb-2" src="{{ film.picture.url }}" alt="{{ film.title }}" width="240" height="320"  />
                     <h1 class="h2">{{ film.title }}</h1>
                     <p>{{ film.synopsis|safe }}</p>
@@ -35,7 +35,7 @@
                     {% if film.photo.all %}
                     <div class="row col-12">
       
-                          <div class="col-12 border">
+                          <div class="col-12 rounded border border-primary">
                                  <div class="container-fluid">
                                       <p class="h3 p-2 mb-1 text-center rounded">Galerie de photos</p>
                                       <div class="tz-gallery">                               
@@ -54,7 +54,7 @@
                       </div> 
                      {% endif %}
                 </div>
-                <div class=" col-sm-12 col-lg-5 border">
+                <div class=" col-sm-12 col-lg-5">
                     {% for video in film.video.all %} 
                     <div class="row">
                         <div class="col-12">
@@ -69,7 +69,7 @@
                     {% endfor %}
                 </div> 
                     
-                <div class="col-sm-12 col-lg-2  border">
+                <div class="col-sm-12 col-lg-2">
                       
                             <div class="row">
                               <div class="col-12">

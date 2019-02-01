@@ -32,8 +32,12 @@ class FilmAdmin(SummernoteModelAdmin, admin.ModelAdmin):
 admin.site.register(Film, FilmAdmin)
 
 admin.site.register(Genre_Film)
-class ActeurAdmin(admin.ModelAdmin):
+
+class ActeurAdmin(SummernoteModelAdmin, admin.ModelAdmin):
+    summernote_fields = '__all__'
     search_fields = ['name',]
+   
+
 admin.site.register(Acteur, ActeurAdmin)
 
 admin.site.register(Role)
