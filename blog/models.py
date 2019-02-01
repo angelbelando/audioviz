@@ -7,7 +7,7 @@ from django.db import models
 # from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
 
-DIR_PHOTOS_BLOG = 'Images/PhotosBlog/'
+DIR_PHOTOS_BLOG = 'images/PhotosBlog/'
 # from .signals import save_comment
 
 class Post(models.Model):
