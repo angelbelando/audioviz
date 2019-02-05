@@ -20,7 +20,7 @@ class Genre_Film(models.Model):
 
 class Acteur(models.Model):
     name = models.CharField('nom', max_length=64, unique=True)
-    resumeCV = models.TextField("Résumé CV")
+    resumeCV = models.TextField("Résumé CV", blank=True)
     photoActeur = models.ImageField("Photo Acteur", upload_to=DIR_PHOTOS, blank=True)
     class Meta:
         verbose_name = "Acteur"

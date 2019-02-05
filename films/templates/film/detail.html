@@ -76,9 +76,8 @@
                                     <p class="h3 p-2 mb-1 text-center rounded">Suggestions</p>
                               </div> 
                             </div>
-                            
                             {% for suggestion in suggestions %}  
-                            {% if suggestion.title not in film.title %} 
+                            {% if suggestion.id != film.id %} 
                             <div class="row">
                             <div class="col-lg-12">
                                     <div class="card d-block">

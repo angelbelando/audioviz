@@ -36,8 +36,8 @@ class HomeFilms(generic.ListView):
     model = Film
     template_name = 'film/home_films.html'
     context_object_name = 'films'
-    paginate_by = 18
-
+    paginate_by = 36
+    compteur = 0
     def get_queryset(self):
         if self.request.GET.get('year_search'):
             year_search  = self.request.GET.get('year_search')
@@ -53,26 +53,27 @@ class HomeFilms(generic.ListView):
             query = "Tous"
         if year_search!=0 and genre_search!="Tous" and query!="Tous":  
             # requête 1     
-            queryset = Film.objects.filter(an_creation=year_search).filter(genre_id=genre_search).filter(title__icontains=query).filter(status='PUB')
+            queryset = Film.objects.filter(an_creation=year_search).filter(genre_id=genre_search).filter(title__icontains=query).filter(status='PUB').order_by('-an_creation')
         elif year_search!=0 and genre_search!="Tous" and query=="Tous":
             # requête 2 
-            queryset = Film.objects.filter(an_creation=year_search).filter(genre_id=genre_search).filter(status='PUB')
+            queryset = Film.objects.filter(an_creation=year_search).filter(genre_id=genre_search).filter(status='PUB').order_by('-an_creation')
         elif year_search!=0 and genre_search=="Tous" and query=="Tous":
             # requête 3
-            queryset = Film.objects.filter(an_creation=year_search).filter(status='PUB')
+            queryset = Film.objects.filter(an_creation=year_search).filter(status='PUB').order_by('-an_creation')
         elif year_search!=0 and genre_search=="Tous" and query!="Tous":
             # requête 4
-            queryset = Film.objects.filter(an_creation=year_search).filter(title__icontains=query).filter(status='PUB')
+            queryset = Film.objects.filter(an_creation=year_search).filter(title__icontains=query).filter(status='PUB').order_by('-an_creation')
         elif year_search==0 and genre_search!="Tous" and query=="Tous":
             # requête 5
-            queryset = Film.objects.filter(genre_id=genre_search).filter(status='PUB')
+            queryset = Film.objects.filter(genre_id=genre_search).filter(status='PUB').order_by('-an_creation')
         elif year_search==0 and genre_search=="Tous" and query!="Tous":
             # requête 6
-            queryset = Film.objects.filter(title__icontains=query).filter(status='PUB')
+            queryset = Film.objects.filter(title__icontains=query).filter(status='PUB').order_by('-an_creation')
         elif year_search==0 and genre_search!="Tous" and query!="Tous":   
-            queryset = Film.objects.filter(genre_id=genre_search).filter(title__icontains=query).filter(status='PUB')
+            queryset = Film.objects.filter(genre_id=genre_search).filter(title__icontains=query).filter(status='PUB').order_by('-an_creation')
         else:
             queryset = Film.objects.order_by('-an_creation').filter(status='PUB')
+        compteur = queryset.count() 
         return queryset
 
     def get_context_data(self, **kwargs):
