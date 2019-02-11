@@ -14,6 +14,10 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 }
+.bg-news {
+    background-color: gainsboro;
+}
+
 .bg-contact {
 	background-image: url(../img/water-1330252_1920.jpg);
 	background-repeat: no-repeat;
@@ -24,4 +28,7 @@
 }
 .line-height-acteur {
     line-height:30px;
+}
+.border-3 {
+    border-width:2.5px !important;
 }

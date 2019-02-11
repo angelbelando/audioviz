@@ -1,9 +1,9 @@
 {% extends 'film/commun.html' %}
 
 {% block content %}
-<div class="bg-image">
+
     {% include 'blog/post_list_news.html' with listefilms_title='Blog' %}
     {% include 'film/listefilms.html' with listefilms_title='Nos derniers films' %}
-</div>
+
  
 {% endblock %}

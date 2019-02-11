@@ -1,16 +1,26 @@
 
-	<main class="container-fluid mb-0 p-2" >
+	<div class="container-fluid bg-news mb-0 p-2" >
+		    <div class="row">
+				<div class="col-12 h1 text-center">
+
+							<i class="far fa-newspaper"></i>
+							NEWS 
+						   <i class="far fa-newspaper"></i>
+
+				
+				</div>
+			</div>
 			<div class="row">
 					{% if posts %}
 					{% for post in posts %}
 					<div class="col-12 col-sm-6 ccol-md-6 col-lg-3 col-xl-3">
 						<div class="">
 							<div class="">
-								<div class="container">
-										<a href="{{ post.get_absolute_url }}"><img src="{{ post.image.url }}" alt="{{ post.title }}" class="card-img img-responsive"/></a>
+								<div class="container ">
+										<a href="{{ post.get_absolute_url }}"><img src="{{ post.image.url }}" alt="{{ post.title }}" class="card-img img-responsive "/></a>
 										<div class="d-flex">
 												<div class="my-auto mx-auto text-center">
-														<a href="{{ post.get_absolute_url }}"><h1 class="card-title text-white h4">{{ post.title }}</h1>
+														<a href="{{ post.get_absolute_url }}"><h1 class="card-title text-dark h4">{{ post.title }}</h1>
 												</div>
 												
 										</div>	
@@ -21,4 +31,5 @@
 					{% endfor %}
 				{% endif %}
 			</div>
-	</main><!--end main.container-fluid-->
+			<a href=""></a>
+		</div><!--end main.container-fluid-->

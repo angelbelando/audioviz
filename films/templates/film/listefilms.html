@@ -1,8 +1,19 @@
 
-
-
-{% if films %}
-  <section class="row m-1">
+<div class="bg-image">
+    {% if films %}
+    <div class="row">
+				<div class="col-12">
+			
+            <div class="text-white h1 text-center">
+                <i class="fas fa-video"></i>
+               FILMS 
+               <i class="fas fa-video"></i>
+            </div>
+          
+				</div>
+			</div>
+ 
+  <div class="row ">
   {% for film in films %}
     <!-- films  -->    
         <div class="col-lg-2 col-md-6">
@@ -11,7 +22,7 @@
           </div><!--End .card-->
         </div><!--End first element-->   
   {% endfor %}
-  </section><!--End section.row third row-->  
+      </div><!--End section.row third row-->  
 {% else %}
   <div class="text-center">
     Pas de film
@@ -39,3 +50,6 @@
 </ul>
 </nav>
 {% endif %}
+
+</div>
+
