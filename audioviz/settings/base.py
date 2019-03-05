@@ -134,11 +134,9 @@ MEDIA_ROOT = 'media'
 
 MAX_LENGTH_TEXTAREA = 120
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-# EMAIL_HOST = 'smtp.sendgrid.net'
-# EMAIL_PORT = 587
-# EMAIL_HOST_USER = 'parsifal_app'
-# EMAIL_HOST_PASSWORD = 'mys3cr3tp4ssw0rd'
-# EMAIL_USE_TLS = True
+
+
+
 SUMMERNOTE_THEME = 'bs4'
 SUMMERNOTE_CONFIG = {
     # You can put custom Summernote settings

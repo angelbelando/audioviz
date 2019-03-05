@@ -9,7 +9,6 @@ from blog.models import Post
 from .forms import ContactForm
 from django.core.mail import send_mail, get_connection
 
-
 class Contact(generic.FormView):
     template_name = 'contact.html'
     form_class = ContactForm
@@ -18,19 +17,20 @@ class Contact(generic.FormView):
     def form_valid(self, form):
         # This method is called when valid form data has been POSTed.
         # It should return an HttpResponse.
-        cd = form.cleaned_data
-        # assert False
-        # envoi message email 
-        con = get_connection('django.core.mail.backends.console.EmailBackend')
-        send_mail(cd['subject'], 
-        cd['message'],
-        cd.get('email', 'noreply@audioviz.fr'),
-        ['angel.belando@orange.fr'],
-        connection=con
-        )
-        # sauvegarde du contact dans le modèle
-        form.save()
-        return super().form_valid(form)
+        if self.request.recaptcha_is_valid:
+            cd = form.cleaned_data
+            # envoi message email 
+            # con = get_connection('django.core.mail.backends.console.EmailBackend')
+            send_mail(cd['subject'], 
+            cd['message'],
+            cd.get('email', 'relation@audioviz.fr'),
+            ['relation@audioviz.fr'],
+            # connection=con,
+            fail_silently=False
+            )
+            form.save()
+            return super().form_valid(form)
+        return render(self.request, 'contact.html', self.get_context_data())
 
 class HomeFilms(generic.ListView):
     model = Film
