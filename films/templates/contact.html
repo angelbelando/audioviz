@@ -18,20 +18,6 @@
                    <h1 class="h3">Veuillez remplir le formulaire ci-dessous pour nous contacter. Merci.</h1>
                    <form action="#" method="post" novalidate>
                         {{ form|crispy|safe }}
-                             <!--Submit-->
-                             <script src='https://www.google.com/recaptcha/api.js'></script>
-                             <!-- clé de développement 127.0.0.1 -->
-                             <!-- <div class="g-recaptcha" data-sitekey="6Lelj5UUAAAAAIr5tSKFFWl0rCSvAIPtxTFy-GWb"></div> -->
-                             <!-- Clé de production audioviz.fr -->
-                             <div class="g-recaptcha" data-sitekey="6LfUZpUUAAAAAOvlh_UjGYAwlw1tWFtB6vai6Lja"></div>
-                             <div class= "text-danger font-weight-bold">
-                                {% if messages %}
-                                {% for message in messages %}
-                                    {{ message }}
-                                {% endfor %}
-                            {% endif %}
-                             </div>
-                         <br>
                          <button class="btn bg-nav-film text-white mb-2">Envoyer</button>
                           
                           {% csrf_token %}

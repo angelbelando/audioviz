@@ -7,3 +7,4 @@ blog/migrations/__pycache__/
 .vscode/
 .env
 audioviz/settings/prod.py
+films/templates/contacts.html

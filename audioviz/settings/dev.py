@@ -37,4 +37,5 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-GOOGLE_RECAPTCHA_SECRET_KEY = '6Lelj5UUAAAAAHRVAb7b5-MX0Ivf3RN8JNUum_iS'
+# Attention les données recaptcha (je ne suis pas un robot) et SENDGRID (Envoi email) se trouve dans le fichier prod.py et dans le fichier contacts.html
+GOOGLE_RECAPTCHA_SECRET_KEY = ''
