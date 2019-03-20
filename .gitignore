@@ -4,6 +4,7 @@ films/__pycache__/
 films/migrations/__pycache__/
 blog/__pycache__/
 blog/migrations/__pycache__/
+blog/templatetags/__pycache__/
 audioviz/settings/__pycache__/
 .vscode/
 .env
