@@ -21,10 +21,14 @@
 								<article class="list-group-item list-group-item-action">
 									 <div class="row">
 											 <div class="col12 col-md-2">
+													{% if post.image.url != '' %}
 													 <img src="{{ post.image.url }}" class="img-fluid img-thumbnail" alt="{{ post.title }}" width="480" height="320">
+													 {% endif %}
 											 </div>
 											 <div class="col12 col-md-10">
+													{% if post.image.url != '' %}
 														<a href="{{ post.get_absolute_url }}"><h1 class="h3">{{ post.title }}</h1></a>
+														{% endif %}
 														<p>{{ post.bodytext|safe }}</p>
 														<!-- <a href="{{ post.get_absolute_url }}" class="btn bg-nav-film text-white mt-auto">En savoir plus</a> -->
 											 </div><!---End second column of Article-->

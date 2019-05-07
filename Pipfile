@@ -21,8 +21,8 @@ pyyaml = "*"
 psycopg2 = "*"
 django-jet = "*"
 django-debug-toolbar = "*"
-django-extensions = "*"
 requests = "*"
+django-extensions = "*"
 
 [dev-packages]
 
