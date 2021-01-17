@@ -8,12 +8,12 @@
 .bg-nav-film {
     background-color:#3498DB ;
 }
-.bg-image {
+/* .bg-image { */
     /* background-image: url(../img/vide.jpg); */
 	/* background-image: url(../img/film-1668918_1280_flou.jpg); */
-	background-repeat: no-repeat;
+	/* background-repeat: no-repeat;
 	background-size: cover; 
-} 
+}  */
 .bg-news {
     background-color: gainsboro;
 }
