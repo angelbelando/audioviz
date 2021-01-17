@@ -3,17 +3,17 @@
     height: 800px;
 }
 .bg-film {
-    background-color: gainsboro;
+    background-color: #f5efef
 }
 .bg-nav-film {
     background-color:#3498DB ;
 }
-.bg-image {
+/* .bg-image {
     /* background-image: url(../img/light-1282314_1920.jpg); */
 	/* background-image: url(../img/film-1668918_1280_flou.jpg); */
-	background-repeat: no-repeat;
-	background-size: cover;
-}
+	/* background-repeat: no-repeat;
+	background-size: cover; */
+/* } */ 
 .bg-news {
     background-color: gainsboro;
 }
