@@ -1,30 +1,30 @@
 [[source]]
+name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
-name = "pypi"
-
-[packages]
-pillow = "*"
-whitenoise = "*"
-dj-database-url = "*"
-gunicorn = "*"
-psycopg2-binary = "*"
-dj-static = "*"
-django-el-pagination = "*"
-django-pagedown = "*"
-django-simple-math-captcha = "*"
-django-crispy-forms = "*"
-django-import-export = "*"
-django-summernote = "*"
-django = "==2.2.13"
-pyyaml = "*"
-psycopg2 = "*"
-django-jet = "*"
-django-debug-toolbar = "*"
-requests = "*"
-django-extensions = "*"
 
 [dev-packages]
+
+[packages]
+"Django=" = "3.1.5"
+dj-database-url = "*"
+dj-static = "*"
+django-crispy-forms = "*"
+django-debug-toolbar = "*"
+django-el-pagination = "*"
+django-extensions = "*"
+django-import-export = "*"
+django-jet = "*"
+django-pagedown = "*"
+django-simple-math-captcha = "*"
+django-summernote = "*"
+gunicorn = "*"
+pillow = "*"
+psycopg2 = "*"
+psycopg2-binary = "*"
+pyyaml = "*"
+requests = "*"
+whitenoise = "*"
 
 [requires]
 python_version = "3.6"
