@@ -10,7 +10,7 @@
 }
 .bg-image { 
     /* background-image: url(../img/vide.jpg); */
-	/* background-image: url(../img/film-1668918_1280_flou.jpg); */
+	background-image: url(../img/film-1668918_1280_flou.jpg);
 	background-repeat: no-repeat; 
 	background-size: cover; 
 } 
