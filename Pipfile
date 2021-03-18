@@ -24,7 +24,7 @@ psycopg2-binary = "*"
 pyyaml = "*"
 requests = "*"
 whitenoise = "*"
-django = "==2.2.17"
+django = "==2.2.18"
 
 [requires]
 python_version = "3.6"
