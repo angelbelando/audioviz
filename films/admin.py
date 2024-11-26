@@ -11,6 +11,7 @@ from .models import Film, Genre_Film, Acteur, Role, Role_Film, Video_Type, Video
 class RoleFilmAdmin(admin.TabularInline):
     model = Role_Film
     fields = ('role', 'acteur')
+    # test
 
 class FilmResource(resources.ModelResource):
     class Meta:
